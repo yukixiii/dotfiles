@@ -41,7 +41,7 @@ set virtualedit=block
 set whichwrap=b,s,[,],<,>
 
 " 文字化け対策
-set fileencodings=iso-2022-jp,utf-8,cp932,euc-jp,default,latin
+set fileencodings=utf-8,iso-2022-jp,cp932,euc-jp,default,latin
 
 " マウスを有効
 if has('mouse')
