@@ -60,6 +60,11 @@ set softtabstop=4 " <Tab><BS>を打った時の動く幅
 set splitbelow
 set splitright
 
+" windowsでパスを/にする
+if exists('+shellslash')
+	set shellslash
+endif
+
 " 日本語入力固定モードIBus+Python
 let IM_CtrlIBusPython = 1
 " }}}
