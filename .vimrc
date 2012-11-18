@@ -10,7 +10,7 @@ if exists('+shellslash')
 	set shellslash
 endif
 if filereadable(expand('~/vimfiles/neobundle.vimrc'))
-	source ~/vimfiles/neobundle.vimrc'
+	source ~/vimfiles/neobundle.vimrc
 endif
 "}}}
 
