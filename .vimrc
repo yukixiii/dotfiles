@@ -1,7 +1,14 @@
-" neobundleでプラグインの読み込み
+" neobundleでプラグインの読み込み "{{{
+" unix版
 if filereadable(expand('~/.vim/neobundle.vimrc'))
 	source ~/.vim/neobundle.vimrc
 endif
+
+" win版
+if filereadable(expand('~/vimfiles/neobundle.vimrc'))
+	source ~/vimfiles/neobundle.vimrc'
+endif
+"}}}
 
 " vi互換かどうか
 set nocompatible
@@ -38,6 +45,7 @@ if has('mouse')
 endif
 
 " 検索時に大文字小文字無視
+set ignorecase
 set smartcase
 
 " 折りたたみをマーカーで
@@ -82,6 +90,8 @@ colorscheme ron
 " 端末色数
 set t_Co=256
 
+" 特殊記号の幅
+set ambiwidth=double
 
 " ステータスラインに文字コードBOM16進表示
 if has('iconv')
@@ -105,10 +115,6 @@ function! s:Byte2hex(bytes)
 endfunction
 
 " 全角スペースの表示
-function! ZenkakuSpace()
-  highlight ZenkakuSpace cterm=underline ctermfg=darkgrey gui=underline guifg=darkgrey
-endfunction
-
 function! ZenkakuSpace()
   highlight ZenkakuSpace cterm=underline ctermfg=darkgrey gui=underline guifg=darkgrey
 endfunction
@@ -157,8 +163,10 @@ nnoremap <Leader>ff :set fileformat=
 " Plugin
 map <Leader>a :Unite buffer_tab file_mru file<CR>
 map ,f :VimFiler<CR>
-map ,s :VimShell<CR>
+map ,sh :VimShell<CR>
+map ,sp :VimShellPop<CR>
 map ,b :Unite bookmark<CR>
+map ,/ :Unite line -start-insert<CR>
 
 map <Leader>tw :Unite tweetvim<CR>
 map <Leader>n :TweetVimSay<CR>
