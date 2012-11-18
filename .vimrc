@@ -5,6 +5,10 @@ if filereadable(expand('~/.vim/neobundle.vimrc'))
 endif
 
 " win版
+" windowsでパスを/にする
+if exists('+shellslash')
+	set shellslash
+endif
 if filereadable(expand('~/vimfiles/neobundle.vimrc'))
 	source ~/vimfiles/neobundle.vimrc'
 endif
