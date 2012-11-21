@@ -26,7 +26,7 @@ NeoBundle 'basyura/TweetVim'
 NeoBundle 'surround.vim'
 NeoBundle 'Lokaltog/vim-powerline'
 NeoBundle 'sudo.vim'
-NeoBundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex '
+NeoBundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
 
 " gitとかで管理できないもの
 NeoBundleLocal ~/.vim/bundle
