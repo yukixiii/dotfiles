@@ -1,9 +1,12 @@
+" script encoding
+scriptencoding utf-8
+
 " GUIメニューの非表示
 set guioptions-=m
 set guioptions-=T
 
 " カラースキーム
-colorscheme koehler
+colorscheme Tomorrow-Night-Bright
 
 " setup font
 if has('unix')
