@@ -28,6 +28,9 @@ NeoBundle 'Lokaltog/vim-powerline'
 NeoBundle 'sudo.vim'
 NeoBundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
 
+" colorscheme
+NeoBundle 'altercation/vim-colors-solarized'
+
 " gitとかで管理できないもの
 NeoBundleLocal ~/.vim/bundle
 
