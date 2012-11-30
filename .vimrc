@@ -78,6 +78,11 @@ let IM_CtrlIBusPython = 1
 " 行番号
 set number
 
+" syntaxをオン
+if has('syntax')
+	syntax enable
+endif
+
 " 自動インデント
 set autoindent
 set smartindent
