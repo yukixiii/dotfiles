@@ -122,8 +122,8 @@ esac
 ### Aliases ###
 alias r=rails
 alias v=vim
-# alias ls=ls --color=auto
-# alias la=ls -a
+alias ls='ls --color=auto'
+alias la='ls -a'
 
 # cdコマンド実行後、lsを実行する
 #function cd() {

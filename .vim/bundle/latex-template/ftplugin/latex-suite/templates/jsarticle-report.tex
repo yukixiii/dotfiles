@@ -1,0 +1,87 @@
+<+	+>	!comp!	!exe!
+%        File: !comp!expand("%:p:t")!comp!
+%
+\documentclass[11pt, a4j]{jsarticle}
+% Preamble
+
+% footer
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\lhead{}
+\rhead{}
+\cfoot{p.\thepage{}/{}\pageref{LastPage}}
+\renewcommand{\headrulewidth}{0pt}
+
+% lines and chars
+\makeatletter
+\def\mojiparline#1{
+    \newcounter{mpl}
+    \setcounter{mpl}{#1}
+    \@tempdima=\linewidth
+    \advance\@tempdima by-\value{mpl}zw
+    \addtocounter{mpl}{-1}
+    \divide\@tempdima by \value{mpl}
+    \advance\kanjiskip by\@tempdima
+    \advance\parindent by\@tempdima
+}
+\makeatother
+\def\linesparpage#1{
+    \baselineskip=\textheight
+    \divide\baselineskip by #1
+}
+
+% package of math
+\usepackage{amsmath}
+
+% package of graphic
+\usepackage[dvipdfm]{graphicx}
+
+% section - setting normal font size
+\makeatletter
+\def\section{\@startsection {section}{1}{\z@}
+{2.5ex plus -1ex minus-.2ex}
+{0ex plus 1.2ex}
+{\normalsize}}
+
+\makeatletter
+\def\subsection{\@startsection {subsection}{1}{\z@}
+{2.5ex plus -1ex minus-.2ex}
+{0ex plus 1.2ex}
+{\normalsize}}
+
+\makeatletter
+\def\subsubsection{\@startsection {subsubsection}{1}{\z@}
+{2.5ex plus -1ex minus-.2ex}
+{0ex plus 1.2ex}
+{\normalsize}}
+\begin{document}
+\mojiparline{46}
+\linesparpage{45}
+
+% table number setting
+\makeatletter
+\renewcommand{\thetable}{
+\thesection.\arabic{table}
+}
+\@addtoreset{table}{section}
+\makeatother
+
+% figure number setting
+\makeatletter
+\renewcommand{\thefigure}{
+\thesection.\arabic{figure}
+}
+\@addtoreset{figure}{section}
+\makeatother
+
+% numerical formula number setting
+\makeatletter
+\renewcommand{\theequation}{
+	\thesection.\arabic{equation}
+}
+\@addtoreset{equation}{section}
+\makeatother
+
+<++>
+\end{document}
