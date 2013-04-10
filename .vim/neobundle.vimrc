@@ -9,6 +9,8 @@ if has('vim_starting')
 	call neobundle#rc(expand('~/.bundle'))
 endif
 
+let g:neobundle#types#git#default_protocol = 'https'
+
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/neobundle-vim-scripts'
@@ -18,6 +20,7 @@ NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/vinarise'
 NeoBundle 'Shougo/vimproc'
 NeoBundle 'Shougo/neosnippet'
+NeoBundle 'ujihisa/vimshell-ssh'
 NeoBundle 'mattn/webapi-vim'
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'tyru/caw.vim'
