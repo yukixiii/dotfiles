@@ -35,7 +35,12 @@ NeoBundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
 NeoBundle 'altercation/vim-colors-solarized'
 
 " gitとかで管理できないもの
-NeoBundleLocal ~/.vim/bundle
+if isdirectory(expand('~/.vim'))
+	NeoBundleLocal ~/.vim/bundle
+endif
+if isdirectory(expand('~/vimfiles'))
+	NeoBundleLocal ~/vimfiles/bundle
+endif
 
 filetype plugin on
 filetype indent on
