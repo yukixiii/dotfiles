@@ -124,6 +124,8 @@ alias r=rails
 alias v=vim
 alias ls='ls --color=auto'
 alias la='ls -a'
+alias fumomo='ssh yukid@fumomo.kasahara.cs.waseda.ac.jp'
+alias ras='ssh yukid@ras.kasahara.cs.waseda.ac.jp'
 
 # cdコマンド実行後、lsを実行する
 #function cd() {
