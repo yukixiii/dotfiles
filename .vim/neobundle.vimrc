@@ -11,7 +11,12 @@ endif
 
 let g:neobundle#types#git#default_protocol = 'https'
 
-NeoBundle 'Shougo/neocomplcache'
+if has('lua') && ( (v:version == 703 && has('patch885')) || v:version >= 704 )
+	" luaがあればこっち
+	NeoBundle 'Shougo/neocomplete'
+else
+	NeoBundle 'Shougo/neocomplcache'
+endif
 NeoBundle 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/neobundle-vim-scripts'
 NeoBundle 'Shougo/unite.vim'

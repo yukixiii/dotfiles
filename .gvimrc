@@ -6,7 +6,7 @@ set guioptions-=m
 set guioptions-=T
 
 " カラースキーム
-colorscheme Tomorrow-Night-Bright
+colorscheme Tomorrow-Night
 
 " setup font
 if has('unix')
