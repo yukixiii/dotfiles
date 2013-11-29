@@ -40,6 +40,8 @@ NeoBundle 'bling/vim-airline'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'sudo.vim'
 NeoBundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
+NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'yuratomo/dbg.vim'
 
 " colorscheme
 NeoBundle 'altercation/vim-colors-solarized'

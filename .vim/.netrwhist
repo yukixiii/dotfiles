@@ -1,3 +1,4 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =1
+let g:netrw_dirhist_cnt =2
 let g:netrw_dirhist_1='/home/yuki/.vimperator'
+let g:netrw_dirhist_2='scp://yukid@ras.kasahara.cs.waseda.ac.jp///homeco2/yukid/'

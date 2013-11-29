@@ -205,6 +205,19 @@ vnoremap <C-c> <Esc>
 " command line mode {{{
 cnoremap <C-c> <Esc>
 " }}}
+"
+
+"------------------------------
+" dbg.vimの設定 {{{
+"------------------------------
+if neobundle#is_installed('dbg.vim')
+	let g:dbg#command_shell = 'zsh'
+	let g:dbg#shell_prompt = '> '
+
+	let g:dbg#command_jdb = 'jdb'
+	let g:dbg#command_gdb = 'gdb'
+endif
+" }}}
 "------------------------------
 " neocomplcacheの設定 いずれ1から書きたい {{{
 "------------------------------
