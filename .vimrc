@@ -147,10 +147,10 @@ endif
 "------------------------------
 " normal mode {{{
 " 現在のvimスクリプトファイルを実行
-nnoremap <F8> :source %<CR>
+nnoremap <F8> :<C-u>source %<CR>
 
 " 現在のファイル位置をカレントディレクトリにする
-nnoremap <F7> :cd %:h<CR>
+nnoremap <F7> :<C-u>cd %:h<CR>
 
 " 強制全保存終了無効化
 nnoremap ZZ <Nop>
@@ -164,26 +164,27 @@ nnoremap k gk
 nnoremap l <Right>zv
 
 " 文字コードを指定して開き直し
-nnoremap <Leader>u :e ++enc=utf-8<CR>
-nnoremap <Leader>c :e ++enc=cp932<CR>
-nnoremap <Leader>e :e ++enc=euc-jp<CR>
-nnoremap <Leader>q :e ++enc=
-nnoremap <Leader>r :e ++ff=
+nnoremap <Leader>u :<C-u>e ++enc=utf-8<CR>
+nnoremap <Leader>c :<C-u>e ++enc=cp932<CR>
+nnoremap <Leader>e :<C-u>e ++enc=euc-jp<CR>
+nnoremap <Leader>q :<C-u>e ++enc=
+nnoremap <Leader>r :<C-u>e ++ff=
 
 " 改行コード、文字コードの設定
-nnoremap <Leader>fe :set fileencoding=
-nnoremap <Leader>ff :set fileformat=
+nnoremap <Leader>fe :<C-u>set fileencoding=
+nnoremap <Leader>ff :<C-u>set fileformat=
 
 " Plugin
-map <Leader>a :Unite buffer_tab file_mru file<CR>
-map ,f :VimFiler<CR>
-map ,sh :VimShell<CR>
-map ,sp :VimShellPop<CR>
-map ,b :Unite bookmark<CR>
-map ,/ :Unite line -start-insert<CR>
+map <Leader>a :<C-u>Unite buffer_tab file_mru file<CR>
+map ,f :<C-u>VimFiler<CR>
+map ,sh :<C-u>VimShell<CR>
+map ,sp :<C-u>VimShellPop<CR>
+map ,b :<C-u>Unite bookmark<CR>
+map ,/ :<C-u>Unite line -start-insert<CR>
+map <Leader>o :<C-u>Unite outline<CR>
 
-map <Leader>tw :Unite tweetvim<CR>
-map <Leader>n :TweetVimSay<CR>
+map <Leader>tw :<C-u>Unite tweetvim<CR>
+map <Leader>n :<C-u>TweetVimSay<CR>
 " }}}
 " insert mode {{{
 " インサートモードでもHJKL移動
@@ -299,16 +300,12 @@ if neobundle#is_installed('neocomplete')
 	let g:neocomplete#enable_at_startup = 1
 	" Use smartcase.
 	let g:neocomplete#enable_smart_case = 1
-	" Use camel case completion.
-	let g:neocomplete#enable_camel_case_completion = 1
-	" Use underbar completion.
-	let g:neocomplete#enable_underbar_completion = 1
 	" Set minimum syntax keyword length.
-	let g:neocomplete#min_syntax_length = 3
+	let g:neocomplete#sources#syntax#min_keyword_length = 3
 	let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 
 	" Define dictionary.
-	let g:neocomplete#dictionary_filetype_lists = {
+	let g:neocomplete#sources#dictionary#dictionaries = {
 				\ 'default' : '',
 				\ 'vimshell' : $HOME.'/.vimshell_hist',
 				\ 'scheme' : $HOME.'/.gosh_completions'
@@ -324,7 +321,7 @@ if neobundle#is_installed('neocomplete')
 	" inoremap <expr><C-l>     neocomplete#complete_common_string()
 
 	" SuperTab like snippets behavior.
-	imap <expr><TAB> neocomplete#sources#snippets_complete#expandable() ? "\<Plug>(neocomplete#snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
+	" imap <expr><TAB> neocomplete#sources#snippets_complete#expandable() ? "\<Plug>(neocomplete#snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
 
 	" Recommended key-mappings.
 	" <CR>: close popup and save indent.
@@ -344,20 +341,35 @@ if neobundle#is_installed('neocomplete')
 	"inoremap <expr><CR>  neocomplete#smart_close_popup() . "\<CR>"
 
 	" Enable omni completion.
+	" Eclim
+	let g:EclimCompletionMethod = 'omnifunc'
+
 	autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 	autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 	autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 	autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 	autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-	autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
+	" autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
+	" autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
 
 	" Enable heavy omni completion.
-	if !exists('g:neocomplete#omni_patterns')
-		let g:neocomplete#omni_patterns = {}
+	if !exists('g:neocomplete#sources#omni#input_patterns')
+	  let g:neocomplete#sources#omni#input_patterns = {}
 	endif
-	let g:neocomplete#omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
-	let g:neocomplete#omni_patterns['php'] = '[^. \t]->\h\w*\|\h\w*::'
-	autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+	if !exists('g:neocomplete#force_omni_input_patterns')
+	  let g:neocomplete#force_omni_input_patterns = {}
+	endif
+	let g:neocomplete#sources#omni#input_patterns.php =
+	\ '[^. \t]->\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
+	let g:neocomplete#sources#omni#input_patterns.c =
+	\ '[^.[:digit:] *\t]\%(\.\|->\)\%(\h\w*\)\?'
+	let g:neocomplete#sources#omni#input_patterns.cpp =
+	\ '[^.[:digit:] *\t]\%(\.\|->\)\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
+
+	" let g:neocomplete#omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
+	let g:neocomplete#sources#omni#input_patterns.java =
+	\ '\k\.\k*'
+	" \ '\%(\h\w*\|)\)\.\w*'
 
 	" snippets
 	" 
