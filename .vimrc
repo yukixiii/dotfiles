@@ -367,7 +367,7 @@ if neobundle#is_installed('neocomplete')
 	\ '[^.[:digit:] *\t]\%(\.\|->\)\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
 
 	" let g:neocomplete#omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
-	let g:neocomplete#sources#omni#input_patterns.java =
+	let g:neocomplete#force_omni_input_patterns.java =
 	\ '\k\.\k*'
 	" \ '\%(\h\w*\|)\)\.\w*'
 

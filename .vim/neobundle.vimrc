@@ -42,7 +42,7 @@ NeoBundle 'sudo.vim'
 NeoBundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'yuratomo/dbg.vim'
-NeoBundle 'h1mesuke/unite-outline'
+NeoBundle 'Shougo/unite-outline'
 NeoBundle 'tsukkee/unite-tag'
 
 " colorscheme
