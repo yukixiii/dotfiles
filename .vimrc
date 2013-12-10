@@ -147,10 +147,10 @@ endif
 "------------------------------
 " normal mode {{{
 " 現在のvimスクリプトファイルを実行
-nnoremap <F8> :<C-u>source %<CR>
+nnoremap <F8> :source %<CR>
 
 " 現在のファイル位置をカレントディレクトリにする
-nnoremap <F7> :<C-u>cd %:h<CR>
+nnoremap <F7> :cd %:h<CR>
 
 " 強制全保存終了無効化
 nnoremap ZZ <Nop>
@@ -164,27 +164,27 @@ nnoremap k gk
 nnoremap l <Right>zv
 
 " 文字コードを指定して開き直し
-nnoremap <Leader>u :<C-u>e ++enc=utf-8<CR>
-nnoremap <Leader>c :<C-u>e ++enc=cp932<CR>
-nnoremap <Leader>e :<C-u>e ++enc=euc-jp<CR>
-nnoremap <Leader>q :<C-u>e ++enc=
-nnoremap <Leader>r :<C-u>e ++ff=
+nnoremap <Leader>u :e ++enc=utf-8<CR>
+nnoremap <Leader>c :e ++enc=cp932<CR>
+nnoremap <Leader>e :e ++enc=euc-jp<CR>
+nnoremap <Leader>q :e ++enc=
+nnoremap <Leader>r :e ++ff=
 
 " 改行コード、文字コードの設定
-nnoremap <Leader>fe :<C-u>set fileencoding=
-nnoremap <Leader>ff :<C-u>set fileformat=
+nnoremap <Leader>fe :set fileencoding=
+nnoremap <Leader>ff :set fileformat=
 
 " Plugin
-map <Leader>a :<C-u>Unite buffer_tab file_mru file<CR>
-map ,f :<C-u>VimFiler<CR>
-map ,sh :<C-u>VimShell<CR>
-map ,sp :<C-u>VimShellPop<CR>
-map ,b :<C-u>Unite bookmark<CR>
-map ,/ :<C-u>Unite line -start-insert<CR>
-map <Leader>o :<C-u>Unite outline<CR>
+map <Leader>a :Unite buffer_tab file_mru file<CR>
+map ,f :VimFiler<CR>
+map ,sh :VimShell<CR>
+map ,sp :VimShellPop<CR>
+map ,b :Unite bookmark<CR>
+map ,/ :Unite line -start-insert<CR>
+map <Leader>o :Unite outline<CR>
 
-map <Leader>tw :<C-u>Unite tweetvim<CR>
-map <Leader>n :<C-u>TweetVimSay<CR>
+map <Leader>tw :Unite tweetvim<CR>
+map <Leader>n :TweetVimSay<CR>
 " }}}
 " insert mode {{{
 " インサートモードでもHJKL移動
@@ -206,8 +206,35 @@ vnoremap <C-c> <Esc>
 " command line mode {{{
 cnoremap <C-c> <Esc>
 " }}}
-"
+"------------------------------
+" command-line windowの設定 {{{
+"------------------------------
+" :を入力した時コマンドラインウィンドウに入る
+" <sid>はファイルごとに割り振られたスクリプト番号を呼び出す(<SNR>{スクリプト番号}_に置き換えられる)
+" この<sid>はキーボードから入力できないため副作用のないキーマッピングができる
+nnoremap <sid>(command-line-enter) q:
+xnoremap <sid>(command-line-enter) q:
+nnoremap <sid>(command-line-norange) q:<C-u>
 
+nmap :  <sid>(command-line-enter)
+xmap :  <sid>(command-line-enter)
+
+" コマンドラインウィンドウに入った際の設定
+" インサートモードで開始するなど
+autocmd CmdwinEnter * call s:init_cmdwin()
+function! s:init_cmdwin()
+	" qとTABでコマンドラインウィンドウを抜ける
+	nnoremap <buffer> q :<C-u>quit<CR>
+	nnoremap <buffer> <TAB> :<C-u>quit<CR>
+	inoremap <buffer><expr><CR> pumvisible() ? "\<C-y>\<CR>" : "\<CR>"
+	inoremap <buffer><expr><C-h> pumvisible() ? "\<C-y>\<C-h>" : "\<C-h>"
+	inoremap <buffer><expr><BS> pumvisible() ? "\<C-y>\<C-h>" : "\<C-h>"
+
+	" Completion.
+	inoremap <buffer><expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+	startinsert!
+endfunction
+" }}}
 "------------------------------
 " dbg.vimの設定 {{{
 "------------------------------
@@ -318,7 +345,7 @@ if neobundle#is_installed('neocomplete')
 	let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 	" Plugin key-mappings.
 	inoremap <expr><C-g>     neocomplete#undo_completion()
-	" inoremap <expr><C-l>     neocomplete#complete_common_string()
+	inoremap <expr><C-l>     neocomplete#complete_common_string()
 
 	" SuperTab like snippets behavior.
 	" imap <expr><TAB> neocomplete#sources#snippets_complete#expandable() ? "\<Plug>(neocomplete#snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
