@@ -216,8 +216,9 @@ nnoremap <sid>(command-line-enter) q:
 xnoremap <sid>(command-line-enter) q:
 nnoremap <sid>(command-line-norange) q:<C-u>
 
-nmap :  <sid>(command-line-enter)
-xmap :  <sid>(command-line-enter)
+" 意外と使いにくいしほしい時は自分でq:で呼んだほうが使いやすい
+" nmap :  <sid>(command-line-enter)
+" xmap :  <sid>(command-line-enter)
 
 " コマンドラインウィンドウに入った際の設定
 " インサートモードで開始するなど
