@@ -44,6 +44,7 @@ NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'yuratomo/dbg.vim'
 NeoBundle 'Shougo/unite-outline'
 NeoBundle 'tsukkee/unite-tag'
+NeoBundle 'kannokanno/previm'
 
 " colorscheme
 NeoBundle 'altercation/vim-colors-solarized'
