@@ -27,6 +27,7 @@ if !has('kaoriya') " kaoriya版にはvimproc同梱されてるしWinでコンパ
 	NeoBundle 'Shougo/vimproc'
 endif
 NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'ujihisa/vimshell-ssh'
 NeoBundle 'mattn/webapi-vim'
 NeoBundle 'tyru/open-browser.vim'
