@@ -109,37 +109,37 @@ set ambiwidth=double
 
 " ステータスラインに文字コードBOM16進表示
 if has('iconv')
-  set statusline=%<%f\ %m\ %r%h%w%{'['.(&fenc!=''?&fenc:&enc).(&bomb?':BOM':'').']['.&ff.']'}%=[0x%{FencB()}]\ (%v,%l)/%L%8P\ 
+	set statusline=%<%f\ %m\ %r%h%w%{'['.(&fenc!=''?&fenc:&enc).(&bomb?':BOM':'').']['.&ff.']'}%=[0x%{FencB()}]\ (%v,%l)/%L%8P\ 
 else
-  set statusline=%<%f\ %m\ %r%h%w%{'['.(&fenc!=''?&fenc:&enc).(&bomb?':BOM':'').']['.&ff.']'}%=\ (%v,%l)/%L%8P\ 
+	set statusline=%<%f\ %m\ %r%h%w%{'['.(&fenc!=''?&fenc:&enc).(&bomb?':BOM':'').']['.&ff.']'}%=\ (%v,%l)/%L%8P\ 
 endif
 " iconvが使用可能なときにカーソル上の文字コードをエンコードに応じた表示にする
 function! FencB()
-  let c = matchstr(getline('.'), '.', col('.') - 1)
-  let c = iconv(c, &enc, &fenc)
-  return s:Byte2hex(s:Str2byte(c))
+	let c = matchstr(getline('.'), '.', col('.') - 1)
+	let c = iconv(c, &enc, &fenc)
+	return s:Byte2hex(s:Str2byte(c))
 endfunction
 
 function! s:Str2byte(str)
-  return map(range(len(a:str)), 'char2nr(a:str[v:val])')
+	return map(range(len(a:str)), 'char2nr(a:str[v:val])')
 endfunction
 
 function! s:Byte2hex(bytes)
-  return join(map(copy(a:bytes), 'printf("%02X", v:val)'), '')
+	return join(map(copy(a:bytes), 'printf("%02X", v:val)'), '')
 endfunction
 
 " 全角スペースの表示
 function! ZenkakuSpace()
-  highlight ZenkakuSpace cterm=underline ctermfg=darkgrey gui=underline guifg=darkgrey
+	highlight ZenkakuSpace cterm=underline ctermfg=darkgrey gui=underline guifg=darkgrey
 endfunction
 
 if has('syntax')
-  augroup ZenkakuSpace
-    autocmd!
-    autocmd ColorScheme       * call ZenkakuSpace()
-    autocmd VimEnter,WinEnter * match ZenkakuSpace /　/
-  augroup END
-  call ZenkakuSpace()
+	augroup ZenkakuSpace
+		autocmd!
+		autocmd ColorScheme       * call ZenkakuSpace()
+		autocmd VimEnter,WinEnter * match ZenkakuSpace /　/
+	augroup END
+	call ZenkakuSpace()
 endif
 " }}}
 "------------------------------
@@ -237,6 +237,11 @@ function! s:init_cmdwin()
 endfunction
 " }}}
 "------------------------------
+" vim-easymotionの設定 {{{
+"------------------------------
+let g:EasyMotion_leader_key = '<Space>'
+" }}}
+"------------------------------
 " dbg.vimの設定 {{{
 "------------------------------
 if neobundle#is_installed('dbg.vim')
@@ -315,7 +320,6 @@ if neobundle#is_installed('neocomplcache')
 	autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
 
 	" snippets
-	" 
 	imap <C-d> <plug>(neocomplcache_snippets_expand)
 	smap <C-d> <plug>(neocomplcache_snippets_expand)
 endif
@@ -400,7 +404,6 @@ if neobundle#is_installed('neocomplete')
 	" \ '\%(\h\w*\|)\)\.\w*'
 
 	" snippets
-	" 
 	imap <C-d> <Plug>(neosnippet_expand_or_jump)
 	smap <C-d> <Plug>(neosnippet_expand_or_jump)
 endif
