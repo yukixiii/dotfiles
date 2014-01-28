@@ -49,6 +49,7 @@ NeoBundle 'kannokanno/previm'
 
 " colorscheme
 NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'w0ng/vim-hybrid'
 
 " gitとかで管理できないもの
 if isdirectory(expand('~/.vim'))
