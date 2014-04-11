@@ -6,11 +6,11 @@ set guioptions-=m
 set guioptions-=T
 
 " カラースキーム
-colorscheme Tomorrow-Night
+colorscheme hybrid
 
 " setup font
 if has('unix')
-	set guifont=あずきフォント\ 13
+	set guifont=あずきフォント\ 12
 elseif has('win64') || has('win32')
-	set guifont=あずきフォント:h13:cSHIFTJIS
+	set guifont=あずきフォント:h12:cSHIFTJIS
 endif

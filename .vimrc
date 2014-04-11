@@ -147,10 +147,10 @@ endif
 "------------------------------
 " normal mode {{{
 " 現在のvimスクリプトファイルを実行
-nnoremap <F8> :source %<CR>
+nnoremap <F8> :<C-u>source %<CR>
 
 " 現在のファイル位置をカレントディレクトリにする
-nnoremap <F7> :cd %:h<CR>
+nnoremap <F7> :<C-u>cd %:h<CR>
 
 " 強制全保存終了無効化
 nnoremap ZZ <Nop>
@@ -164,27 +164,31 @@ nnoremap k gk
 nnoremap l <Right>zv
 
 " 文字コードを指定して開き直し
-nnoremap <Leader>u :e ++enc=utf-8<CR>
-nnoremap <Leader>c :e ++enc=cp932<CR>
-nnoremap <Leader>e :e ++enc=euc-jp<CR>
-nnoremap <Leader>q :e ++enc=
-nnoremap <Leader>r :e ++ff=
+nnoremap <Leader>u :<C-u>e ++enc=utf-8<CR>
+nnoremap <Leader>c :<C-u>e ++enc=cp932<CR>
+nnoremap <Leader>e :<C-u>e ++enc=euc-jp<CR>
+nnoremap <Leader>q :<C-u>e ++enc=
+nnoremap <Leader>r :<C-u>e ++ff=
 
 " 改行コード、文字コードの設定
-nnoremap <Leader>fe :set fileencoding=
-nnoremap <Leader>ff :set fileformat=
+nnoremap <Leader>fe :<C-u>set fileencoding=
+nnoremap <Leader>ff :<C-u>set fileformat=
 
 " Plugin
-map <Leader>a :Unite buffer_tab file_mru file<CR>
-map ,f :VimFiler<CR>
-map ,sh :VimShell<CR>
-map ,sp :VimShellPop<CR>
-map ,b :Unite bookmark<CR>
-map ,/ :Unite line -start-insert<CR>
-map <Leader>o :Unite outline<CR>
+map <Leader>a :<C-u>Unite buffer_tab file<CR>
+map ,f :<C-u>VimFiler<CR>
+map ,sh :<C-u>VimShell<CR>
+map ,sp :<C-u>VimShellPop<CR>
+map ,b :<C-u>Unite bookmark<CR>
+map ,/ :<C-u>Unite line -start-insert<CR>
+map ,n/ :<C-u>Unite line -start-insert -no-quit<CR>
+map <Leader>o :<C-u>Unite outline<CR>
+map <Leader>gr :<C-u>Unite grep -no-quit<CR>
 
-map <Leader>tw :Unite tweetvim<CR>
-map <Leader>n :TweetVimSay<CR>
+map <Leader>tw :<C-u>Unite tweetvim<CR>
+map <Leader>n :<C-u>TweetVimSay<CR>
+
+map <Space> <Plug>(easymotion-prefix)
 " }}}
 " insert mode {{{
 " インサートモードでもHJKL移動
