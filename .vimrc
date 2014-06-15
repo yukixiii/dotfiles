@@ -1,3 +1,19 @@
+" encode.vimの読み込み
+" unix版
+if filereadable(expand('~/.vim/neobundle.vimrc'))
+	source ~/.vim/encode.vim
+endif
+
+" win版
+" windowsでパスを/にする
+if exists('+shellslash')
+	set shellslash
+endif
+if filereadable(expand('~/vimfiles/neobundle.vimrc'))
+	source ~/vimfiles/encode.vim
+endif
+"}}}
+
 " neobundleでプラグインの読み込み "{{{
 " unix版
 if filereadable(expand('~/.vim/neobundle.vimrc'))
@@ -41,7 +57,7 @@ set virtualedit=block
 set whichwrap=b,s,[,],<,>
 
 " 文字化け対策
-set fileencodings=utf-8,iso-2022-jp,euc-jp,cp932,default,latin
+" set fileencodings=utf-8,iso-2022-jp,euc-jp,cp932,default,latin
 
 " マウスを有効
 if has('mouse')
