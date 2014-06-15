@@ -125,7 +125,19 @@ alias v=vim
 alias ls='ls --color=auto'
 alias la='ls -a'
 
+# alias mosh='LC_CTYPE=en_US.UTF-8 LC_MESSAGES=en_US.UTF-8 LC_ALL=en_US.UTF-8 mosh'
+
 # cdコマンド実行後、lsを実行する
 #function cd() {
 #  builtin cd $@ && ls;
 #}
+
+# ホスト名ごとの設定をする
+for suffix in "$HOST"
+do
+  local zshrc_suffix="$ZDOTDIR/.zshrc.$suffix"
+  if [ -f $zshrc_suffix ]
+  then
+    source $zshrc_suffix
+  fi
+done
