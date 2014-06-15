@@ -135,7 +135,7 @@ alias la='ls -a'
 # ホスト名ごとの設定をする
 for suffix in "$HOST"
 do
-  local zshrc_suffix="$ZDOTDIR/.zshrc.$suffix"
+  local zshrc_suffix="$HOME/.zshrc.$suffix"
   if [ -f $zshrc_suffix ]
   then
     source $zshrc_suffix
