@@ -1,6 +1,6 @@
-" encode.vimの読み込み
+" encode.vimの読み込み "{{{
 " unix版
-if filereadable(expand('~/.vim/neobundle.vimrc'))
+if filereadable(expand('~/.vim/encode.vimrc'))
 	source ~/.vim/encode.vim
 endif
 
@@ -9,7 +9,7 @@ endif
 if exists('+shellslash')
 	set shellslash
 endif
-if filereadable(expand('~/vimfiles/neobundle.vimrc'))
+if filereadable(expand('~/vimfiles/encode.vimrc'))
 	source ~/vimfiles/encode.vim
 endif
 "}}}
