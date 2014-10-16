@@ -1,21 +1,9 @@
-" encode.vimの読み込み "{{{
+" encode.vim, neobundle.vimrcの読み込み "{{{
 " unix版
-if filereadable(expand('~/.vim/encode.vimrc'))
+if filereadable(expand('~/.vim/encode.vim'))
 	source ~/.vim/encode.vim
 endif
 
-" win版
-" windowsでパスを/にする
-if exists('+shellslash')
-	set shellslash
-endif
-if filereadable(expand('~/vimfiles/encode.vimrc'))
-	source ~/vimfiles/encode.vim
-endif
-"}}}
-
-" neobundleでプラグインの読み込み "{{{
-" unix版
 if filereadable(expand('~/.vim/neobundle.vimrc'))
 	source ~/.vim/neobundle.vimrc
 endif
@@ -25,6 +13,10 @@ endif
 if exists('+shellslash')
 	set shellslash
 endif
+if filereadable(expand('~/vimfiles/encode.vim'))
+	source ~/vimfiles/encode.vim
+endif
+
 if filereadable(expand('~/vimfiles/neobundle.vimrc'))
 	source ~/vimfiles/neobundle.vimrc
 endif
