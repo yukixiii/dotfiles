@@ -6,7 +6,7 @@ filetype off
 
 if has('vim_starting')
 	set runtimepath+=~/.bundle/neobundle.vim
-	call neobundle#rc(expand('~/.bundle'))
+	call neobundle#begin(expand('~/.bundle'))
 endif
 
 let g:neobundle#types#git#default_protocol = 'https'
@@ -58,6 +58,8 @@ endif
 if isdirectory(expand('~/vimfiles'))
 	NeoBundleLocal ~/vimfiles/bundle
 endif
+
+call neobundle#end()
 
 filetype plugin on
 filetype indent on
