@@ -20,6 +20,7 @@ endif
 NeoBundle 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/neobundle-vim-scripts'
 NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/unite-sudo'
 NeoBundle 'Shougo/vimfiler'
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/vinarise'
