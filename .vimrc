@@ -32,6 +32,10 @@ set nocompatible
 set nobackup
 set noswapfile
 
+" undofile
+set undofile
+set undodir=~/.vimundo
+
 " backspaceで削除するもの
 set backspace=indent,eol,start
 
@@ -114,6 +118,9 @@ set t_Co=256
 
 " 特殊記号の幅
 set ambiwidth=double
+
+" 折り返し時のインデント
+set breakindent
 
 " ステータスラインに文字コードBOM16進表示
 if has('iconv')
