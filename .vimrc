@@ -190,7 +190,7 @@ nnoremap <Leader>fe :<C-u>set fileencoding=
 nnoremap <Leader>ff :<C-u>set fileformat=
 
 " Plugin
-map <Leader>a :<C-u>Unite buffer_tab file<CR>
+map <Leader>a :<C-u>Unite buffer_tab file file_mru<CR>
 map ,f :<C-u>VimFiler<CR>
 map ,sh :<C-u>VimShell<CR>
 map ,sp :<C-u>VimShellPop<CR>

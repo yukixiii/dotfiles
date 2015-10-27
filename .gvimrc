@@ -12,5 +12,5 @@ colorscheme hybrid
 if has('unix')
 	set guifont=Myrica_M\ 12
 elseif has('win64') || has('win32')
-	set guifont=Myrica_M:h12:cSHIFTJIS
+	set guifont=MyricaM_M:h11:cSHIFTJIS
 endif
