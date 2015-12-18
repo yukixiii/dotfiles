@@ -32,6 +32,10 @@ set nocompatible
 set nobackup
 set noswapfile
 
+" undofile
+set undofile
+set undodir=~/.vimundo
+
 " backspaceで削除するもの
 set backspace=indent,eol,start
 
@@ -115,6 +119,9 @@ set t_Co=256
 " 特殊記号の幅
 set ambiwidth=double
 
+" 折り返し時のインデント
+set breakindent
+
 " ステータスラインに文字コードBOM16進表示
 if has('iconv')
 	set statusline=%<%f\ %m\ %r%h%w%{'['.(&fenc!=''?&fenc:&enc).(&bomb?':BOM':'').']['.&ff.']'}%=[0x%{FencB()}]\ (%v,%l)/%L%8P\ 
@@ -183,7 +190,7 @@ nnoremap <Leader>fe :<C-u>set fileencoding=
 nnoremap <Leader>ff :<C-u>set fileformat=
 
 " Plugin
-map <Leader>a :<C-u>Unite buffer_tab file<CR>
+map <Leader>a :<C-u>Unite buffer_tab file file_mru<CR>
 map ,f :<C-u>VimFiler<CR>
 map ,sh :<C-u>VimShell<CR>
 map ,sp :<C-u>VimShellPop<CR>
