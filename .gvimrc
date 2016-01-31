@@ -10,7 +10,7 @@ colorscheme hybrid
 
 " setup font
 if has('unix')
-	set guifont=Myrica_M\ 12
+	set guifont=Ricty\ Diminished\ 12
 elseif has('win64') || has('win32')
 	set guifont=MyricaM_M:h11:cSHIFTJIS
 endif
