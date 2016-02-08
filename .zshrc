@@ -96,13 +96,13 @@ SPROMPT=$tmp_sprompt  # スペル訂正用プロンプト
 ;
 
 ### Title (user@hostname) ###
-case "${TERM}" in
-kterm*|xterm*|)
-  precmd() {
-    echo -ne "\033]0;${USER}@${HOST%%.*}\007"
-  }
-  ;;
-esac
+# case "${TERM}" in
+#   kterm*|xterm*|)
+#     precmd() {
+#       echo -ne "\033]0;${USER}@${HOST%%.*}\007"
+#     }
+#   ;;
+# esac
 
 
 # ------------------------------
@@ -128,9 +128,9 @@ alias la='ls -a'
 # alias mosh='LC_CTYPE=en_US.UTF-8 LC_MESSAGES=en_US.UTF-8 LC_ALL=en_US.UTF-8 mosh'
 
 # cdコマンド実行後、lsを実行する
-#function cd() {
-#  builtin cd $@ && ls;
-#}
+function cd() {
+  builtin cd $@ && ls;
+}
 
 # ホスト名ごとの設定をする
 for suffix in "$HOST"
