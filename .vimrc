@@ -442,7 +442,7 @@ if neobundle#is_installed('vim-latex')
 	let g:Tex_FormatDependency_pdf = 'dvi,pdf'
 	"let g:Tex_FormatDependency_pdf = 'dvi,ps,pdf'
 	let g:Tex_FormatDependency_ps = 'dvi,ps'
-	let g:Tex_CompileRule_pdf = 'ptex2pdf -u -l -ot "-synctex=1 -interaction=nonstopmode -file-line-error-style" $*'
+	let g:Tex_CompileRule_pdf = 'ptex2pdf -u -l -ot "-synctex=1 -interaction=nonstopmode -file-line-error-style" -od "-f uptex-ipaex.map -f otf-up-ipaex.map" $*'
 	"let g:Tex_CompileRule_pdf = 'pdflatex -synctex=1 -interaction=nonstopmode -file-line-error-style $*'
 	"let g:Tex_CompileRule_pdf = 'lualatex -synctex=1 -interaction=nonstopmode -file-line-error-style $*'
 	"let g:Tex_CompileRule_pdf = 'luajitlatex -synctex=1 -interaction=nonstopmode -file-line-error-style $*'
