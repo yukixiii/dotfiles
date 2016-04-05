@@ -7,6 +7,7 @@ set guioptions-=T
 
 " カラースキーム
 colorscheme hybrid
+set background=dark
 
 " setup font
 if has('unix')

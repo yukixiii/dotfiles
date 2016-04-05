@@ -190,7 +190,7 @@ nnoremap <Leader>fe :<C-u>set fileencoding=
 nnoremap <Leader>ff :<C-u>set fileformat=
 
 " Plugin
-map <Leader>a :<C-u>Unite buffer_tab file file_mru<CR>
+map ,a :<C-u>Unite buffer_tab file file_mru<CR>
 map ,f :<C-u>VimFiler<CR>
 map ,sh :<C-u>VimShell<CR>
 map ,sp :<C-u>VimShellPop<CR>
@@ -254,6 +254,13 @@ function! s:init_cmdwin()
 	inoremap <buffer><expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 	startinsert!
 endfunction
+" }}}
+"------------------------------
+" Alignの設定 {{{
+"------------------------------
+if neobundle#is_installed('Align')
+	let g:Align_xstrlen = 3
+endif
 " }}}
 "------------------------------
 " vim-easymotionの設定 {{{

@@ -51,10 +51,13 @@ NeoBundle 'yuratomo/dbg.vim'
 NeoBundle 'Shougo/unite-outline'
 NeoBundle 'tsukkee/unite-tag'
 NeoBundle 'kannokanno/previm'
+NeoBundle 'Align'
+NeoBundle 'will133/vim-dirdiff'
 
 " colorscheme
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'w0ng/vim-hybrid'
+NeoBundle 'newspaper.vim'
 
 " gitとかで管理できないもの
 if isdirectory(expand('~/.vim'))
