@@ -191,6 +191,11 @@ nnoremap <Leader>ff :<C-u>set fileformat=
 
 " Plugin
 map ,a :<C-u>Unite buffer_tab file file_mru<CR>
+map ,t :<C-u>Unite buffer_tab<CR>
+map ,v :<C-u>Unite buffer<CR>
+map ,m :<C-u>Unite file_mru<CR>
+map ,r :<C-u>Unite file_rec/async<CR>
+map ,g :<C-u>Unite file file/new directory/new<CR>
 map ,f :<C-u>VimFiler<CR>
 map ,sh :<C-u>VimShell<CR>
 map ,sp :<C-u>VimShellPop<CR>
@@ -260,6 +265,20 @@ endfunction
 "------------------------------
 if neobundle#is_installed('Align')
 	let g:Align_xstrlen = 3
+endif
+" }}}
+"------------------------------
+" vim-refの設定 {{{
+"------------------------------
+if neobundle#is_installed('vim-ref')
+	let g:ref_phpmanual_path = expand('~/php-chunked-xhtml')
+endif
+" }}}
+"------------------------------
+" VimFilerの設定 {{{
+"------------------------------
+if neobundle#is_installed('vimfiler')
+	let g:vimfiler_as_default_explorer = 1
 endif
 " }}}
 "------------------------------

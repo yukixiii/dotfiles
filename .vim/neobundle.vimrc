@@ -53,6 +53,8 @@ NeoBundle 'tsukkee/unite-tag'
 NeoBundle 'kannokanno/previm'
 NeoBundle 'Align'
 NeoBundle 'will133/vim-dirdiff'
+NeoBundle 'fuenor/qfixhowm'
+NeoBundle 'thinca/vim-ref'
 
 " colorscheme
 NeoBundle 'altercation/vim-colors-solarized'
