@@ -195,7 +195,7 @@ map ,t :<C-u>Unite buffer_tab<CR>
 map ,v :<C-u>Unite buffer<CR>
 map ,m :<C-u>Unite file_mru<CR>
 map ,r :<C-u>Unite file_rec/async<CR>
-map ,g :<C-u>Unite file file/new directory/new<CR>
+map ,g :<C-u>UniteWithBufferDir file file/new directory/new<CR>
 map ,f :<C-u>VimFiler<CR>
 map ,sh :<C-u>VimShell<CR>
 map ,sp :<C-u>VimShellPop<CR>
@@ -279,6 +279,15 @@ endif
 "------------------------------
 if neobundle#is_installed('vimfiler')
 	let g:vimfiler_as_default_explorer = 1
+endif
+" }}}
+"------------------------------
+" Unite.vimの設定 {{{
+"------------------------------
+if neobundle#is_installed('unite.vim')
+	let g:unite_source_rec_async_command =
+				\ ['ag', '--follow', '--nocolor', '--nogroup',
+				\  '--hidden', '-g', '']
 endif
 " }}}
 "------------------------------
