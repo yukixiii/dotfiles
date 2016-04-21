@@ -57,6 +57,8 @@ NeoBundle 'fuenor/qfixhowm'
 NeoBundle 'thinca/vim-ref'
 
 " colorscheme
+NeoBundle 'chriskempson/vim-tomorrow-theme'
+NeoBundle 'tomasr/molokai'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'w0ng/vim-hybrid'
 NeoBundle 'newspaper.vim'
