@@ -195,10 +195,11 @@ map ,t :<C-u>Unite buffer_tab<CR>
 map ,v :<C-u>Unite buffer<CR>
 map ,m :<C-u>Unite file_mru<CR>
 map ,r :<C-u>Unite file_rec/async<CR>
-map ,p :<C-u>UniteWithProjectDir file_rec/async<CR>
+map ,p :<C-u>Unite file_rec/async:!<CR>
 map ,g :<C-u>UniteWithBufferDir file file/new directory/new<CR>
 map ,j :<C-u>Unite file file/new directory/new<CR>
 map ,f :<C-u>VimFiler<CR>
+map ,d :<C-u>VimFilerBufferDir<CR>
 map ,sh :<C-u>VimShell<CR>
 map ,sp :<C-u>VimShellPop<CR>
 map ,b :<C-u>Unite bookmark<CR>
@@ -261,6 +262,15 @@ function! s:init_cmdwin()
 	inoremap <buffer><expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 	startinsert!
 endfunction
+" }}}
+"------------------------------
+" solarizedの設定 {{{
+"------------------------------
+if neobundle#is_installed('vim-colors-solarized')
+	let g:solarized_visibility = "low"
+	let g:solarized_italic = 0
+	let g:solarized_underline = 0
+endif
 " }}}
 "------------------------------
 " Alignの設定 {{{

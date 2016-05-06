@@ -62,6 +62,7 @@ NeoBundle 'tomasr/molokai'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'w0ng/vim-hybrid'
 NeoBundle 'newspaper.vim'
+NeoBundle 'GGalizzi/cake-vim'
 
 " gitとかで管理できないもの
 if isdirectory(expand('~/.vim'))
