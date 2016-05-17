@@ -54,6 +54,7 @@ NeoBundle 'kannokanno/previm'
 NeoBundle 'Align'
 NeoBundle 'will133/vim-dirdiff'
 NeoBundle 'fuenor/qfixhowm'
+NeoBundle 'fuenor/im_control.vim'
 NeoBundle 'thinca/vim-ref'
 
 " colorscheme

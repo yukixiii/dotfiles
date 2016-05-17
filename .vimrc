@@ -202,7 +202,7 @@ map ,f :<C-u>VimFiler<CR>
 map ,d :<C-u>VimFilerBufferDir<CR>
 map ,sh :<C-u>VimShell<CR>
 map ,sp :<C-u>VimShellPop<CR>
-map ,b :<C-u>Unite bookmark<CR>
+map ,b :<C-u>Unite bookmark:default<CR>
 map ,/ :<C-u>Unite line -start-insert<CR>
 map ,n/ :<C-u>Unite line -start-insert -no-quit<CR>
 map <Leader>o :<C-u>Unite outline<CR>
@@ -222,8 +222,8 @@ imap <C-l> <Right>
 " Escのキーバインド
 inoremap <C-c> <Esc>
 inoremap <C-f> <Esc>
-" 日本語入力固定モード切替
-inoremap <silent> <C-o> <C-r>=IMState('FixMode')<CR>
+" 「日本語入力固定モード」切替キー
+inoremap <silent> <C-o> <C-^><C-r>=IMState('FixMode')<CR>
 " }}}
 " visual mode {{{
 " 選択中にF3キーで選択中の文字列検索
@@ -301,6 +301,24 @@ if neobundle#is_installed('unite.vim')
 				\ ['ag', '--follow', '--nocolor', '--nogroup',
 				\  '--hidden', '-g', '']
 	let g:unite_source_file_rec_max_cache_files = 100000
+
+	" Start insert mode in unite-action buffer.
+	call unite#custom#profile('action', 'context', {
+				\   'start_insert' : 1
+				\ })
+
+	" Set "-no-quit" automatically in grep unite source.
+	call unite#custom#profile('source/grep', 'context', {
+				\   'no_quit' : 1
+				\ })
+	call unite#custom#profile('source/vimgrep', 'context', {
+				\   'no_quit' : 1
+				\ })
+
+	" Use start insert by default.
+	call unite#custom#profile('default', 'context', {
+				\   'start_insert' : 1
+				\ })
 endif
 " }}}
 "------------------------------
