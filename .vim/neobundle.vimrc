@@ -56,6 +56,7 @@ NeoBundle 'will133/vim-dirdiff'
 NeoBundle 'fuenor/qfixhowm'
 NeoBundle 'fuenor/im_control.vim'
 NeoBundle 'thinca/vim-ref'
+NeoBundle 'joonty/vdebug'
 
 " colorscheme
 NeoBundle 'chriskempson/vim-tomorrow-theme'
@@ -64,6 +65,8 @@ NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'w0ng/vim-hybrid'
 NeoBundle 'newspaper.vim'
 NeoBundle 'GGalizzi/cake-vim'
+NeoBundle 'aereal/vim-colors-japanesque'
+NeoBundle 'nanotech/jellybeans.vim'
 
 " gitとかで管理できないもの
 if isdirectory(expand('~/.vim'))
