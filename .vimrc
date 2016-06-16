@@ -190,28 +190,29 @@ nnoremap <Leader>fe :<C-u>set fileencoding=
 nnoremap <Leader>ff :<C-u>set fileformat=
 
 " Plugin
-map ,a :<C-u>Unite buffer_tab file file_mru<CR>
-map ,t :<C-u>Unite buffer_tab<CR>
-map ,v :<C-u>Unite buffer<CR>
-map ,m :<C-u>Unite file_mru<CR>
-map ,r :<C-u>Unite file_rec/async<CR>
-map ,p :<C-u>Unite file_rec/async:!<CR>
-map ,g :<C-u>UniteWithBufferDir file file/new directory/new<CR>
-map ,j :<C-u>Unite file file/new directory/new<CR>
-map ,f :<C-u>VimFiler<CR>
-map ,d :<C-u>VimFilerBufferDir<CR>
-map ,sh :<C-u>VimShell<CR>
-map ,sp :<C-u>VimShellPop<CR>
-map ,b :<C-u>Unite bookmark:default<CR>
-map ,/ :<C-u>Unite line -start-insert<CR>
-map ,n/ :<C-u>Unite line -start-insert -no-quit<CR>
-map <Leader>o :<C-u>Unite outline<CR>
-map <Leader>gr :<C-u>Unite grep -no-quit<CR>
+nmap ,a :<C-u>Unite buffer_tab file file_mru<CR>
+nmap ,t :<C-u>Unite buffer_tab<CR>
+nmap ,y :<C-u>Unite buffer<CR>
+nmap ,m :<C-u>Unite file_mru<CR>
+" map ,r :<C-u>Unite file_rec/async<CR>
+" map ,p :<C-u>Unite file_rec/async:!<CR>
+nmap ,g :<C-u>UniteWithBufferDir file file/new directory/new<CR>
+nmap ,j :<C-u>Unite file file/new directory/new<CR>
+nmap ,f :<C-u>VimFiler<CR>
+nmap ,d :<C-u>VimFilerBufferDir<CR>
+nmap ,sh :<C-u>VimShell<CR>
+nmap ,sp :<C-u>VimShellPop<CR>
+nmap ,b :<C-u>Unite bookmark:default -input=[<CR>
+nmap ,v :<C-u>Unite bookmark:default -input=[ -default-action=vimfiler<CR>
+nmap ,/ :<C-u>Unite line -start-insert<CR>
+nmap ,n/ :<C-u>Unite line -start-insert -no-quit<CR>
+nmap <Leader>o :<C-u>Unite outline<CR>
+nmap <Leader>gr :<C-u>Unite grep -no-quit<CR>
 
-map <Leader>tw :<C-u>Unite tweetvim<CR>
-map <Leader>n :<C-u>TweetVimSay<CR>
+nmap <Leader>tw :<C-u>Unite tweetvim<CR>
+nmap <Leader>n :<C-u>TweetVimSay<CR>
 
-map <Space> <Plug>(easymotion-prefix)
+nmap <Space> <Plug>(easymotion-prefix)
 " }}}
 " insert mode {{{
 " インサートモードでもHJKL移動
@@ -528,6 +529,18 @@ if neobundle#is_installed('vim-latex')
 	"let g:Tex_ViewRule_pdf = 'mupdf'
 	"let g:Tex_ViewRule_pdf = 'firefox -new-window'
 	"let g:Tex_ViewRule_pdf = 'chromium --new-window'
+endif
+"}}}
+"------------------------------
+" TweetVim {{{
+"------------------------------
+if neobundle#is_installed('TweetVim')
+	let g:tweetvim_tweet_per_page = 200
+	let g:tweetvim_display_source = 1
+	let g:tweetvim_display_time = 1
+	let g:tweetvim_async_post = 1
+	let g:tweetvim_display_username = 1
+	let g:tweetvim_buffer_name = '[buffer]'
 endif
 "}}}
 "------------------------------
