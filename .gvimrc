@@ -13,5 +13,5 @@ set background=dark
 if has('unix')
 	set guifont=Ricty\ Diminished\ 12
 elseif has('win64') || has('win32')
-	set guifont=MyricaM_M:h10:cSHIFTJIS
+	set guifont=Ricty_Diminished_Discord:h10:cSHIFTJIS
 endif
