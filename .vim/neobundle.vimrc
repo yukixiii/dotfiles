@@ -67,6 +67,9 @@ NeoBundle 'newspaper.vim'
 NeoBundle 'GGalizzi/cake-vim'
 NeoBundle 'aereal/vim-colors-japanesque'
 NeoBundle 'nanotech/jellybeans.vim'
+NeoBundle 'hail2u/h2u_colorscheme'
+NeoBundle 'noahfrederick/vim-hemisu'
+NeoBundle 'mayansmoke'
 
 " gitとかで管理できないもの
 if isdirectory(expand('~/.vim'))
