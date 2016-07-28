@@ -122,6 +122,10 @@ set ambiwidth=double
 " 折り返し時のインデント
 set breakindent
 
+" カーソル行列強調表示
+set cursorline
+" set cursorcolumn
+
 " ステータスラインに文字コードBOM16進表示
 if has('iconv')
 	set statusline=%<%f\ %m\ %r%h%w%{'['.(&fenc!=''?&fenc:&enc).(&bomb?':BOM':'').']['.&ff.']'}%=[0x%{FencB()}]\ (%v,%l)/%L%8P\ 
