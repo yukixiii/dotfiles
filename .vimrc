@@ -285,6 +285,15 @@ if neobundle#is_installed('Align')
 endif
 " }}}
 "------------------------------
+" QFixHowmの設定 {{{
+"------------------------------
+if neobundle#is_installed('qfixhowm')
+	let howm_dir          = '/mnt/hgfs/howm'
+	let howm_fileencoding = 'cp932'
+	let howm_fileformat   = 'dos'
+endif
+" }}}
+"------------------------------
 " vim-refの設定 {{{
 "------------------------------
 if neobundle#is_installed('vim-ref')
@@ -324,6 +333,13 @@ if neobundle#is_installed('unite.vim')
 	call unite#custom#profile('default', 'context', {
 				\   'start_insert' : 1
 				\ })
+endif
+" }}}
+"------------------------------
+" Airlineの設定 {{{
+"------------------------------
+if neobundle#is_installed('vim-airline')
+	let g:airline#extensions#tabline#enabled = 1
 endif
 " }}}
 "------------------------------
@@ -487,6 +503,9 @@ if neobundle#is_installed('neocomplete')
 	\ '[^.[:digit:] *\t]\%(\.\|->\)\%(\h\w*\)\?'
 	let g:neocomplete#sources#omni#input_patterns.cpp =
 	\ '[^.[:digit:] *\t]\%(\.\|->\)\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
+	let g:neocomplete#sources#omni#input_patterns.typescript =
+	\ '[^. *\t]\.\w*\|\h\w*::'
+	" \ '\h\w*\|[^. \t]\.\w*'
 
 	" let g:neocomplete#omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
 	let g:neocomplete#force_omni_input_patterns.java =
@@ -498,6 +517,13 @@ if neobundle#is_installed('neocomplete')
 	smap <C-d> <Plug>(neosnippet_expand_or_jump)
 endif
 " }}}
+"------------------------------
+" Tsuquyomi {{{
+"------------------------------
+if neobundle#is_installed('tsuquyomi')
+	let g:tsuquyomi_disable_default_mappings = 1
+endif
+"}}}
 "------------------------------
 " Vim-LaTeX {{{
 "------------------------------
@@ -545,6 +571,13 @@ if neobundle#is_installed('TweetVim')
 	let g:tweetvim_async_post = 1
 	let g:tweetvim_display_username = 1
 	let g:tweetvim_buffer_name = '[buffer]'
+endif
+"}}}
+"------------------------------
+" ローカル設定 {{{
+"------------------------------
+if filereadable(expand('~/.vimrc.localmachine'))
+	source ~/.vimrc.localmachine
 endif
 "}}}
 "------------------------------

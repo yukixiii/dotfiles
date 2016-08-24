@@ -57,6 +57,21 @@ NeoBundle 'fuenor/qfixhowm'
 NeoBundle 'fuenor/im_control.vim'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'joonty/vdebug'
+NeoBundleLazy 'leafgarland/typescript-vim', {
+			\ 'autoload': {
+			\	'filetypes': ['typescript'],
+			\ }}
+NeoBundleLazy 'jason0x43/vim-js-indent', {
+			\ 'autoload': {
+			\	'filetypes': ['javascript', 'typescript', 'html'],
+			\ }}
+let g:js_indent_typescript = 1
+NeoBundle 'Quramy/tsuquyomi'
+" NeoBundleLazy 'clausreinke/typescript-tools', {
+" 			\ 'autoload' : {
+" 			\	'filetypes' : ['typescript'] }
+" 			\}
+NeoBundle 'wavded/vim-stylus'
 
 " colorscheme
 NeoBundle 'chriskempson/vim-tomorrow-theme'
