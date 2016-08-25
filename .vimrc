@@ -285,15 +285,6 @@ if neobundle#is_installed('Align')
 endif
 " }}}
 "------------------------------
-" QFixHowmの設定 {{{
-"------------------------------
-if neobundle#is_installed('qfixhowm')
-	let howm_dir          = '/mnt/hgfs/howm'
-	let howm_fileencoding = 'cp932'
-	let howm_fileformat   = 'dos'
-endif
-" }}}
-"------------------------------
 " vim-refの設定 {{{
 "------------------------------
 if neobundle#is_installed('vim-ref')
