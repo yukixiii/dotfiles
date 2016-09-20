@@ -72,6 +72,10 @@ NeoBundle 'Quramy/tsuquyomi'
 " 			\	'filetypes' : ['typescript'] }
 " 			\}
 NeoBundle 'wavded/vim-stylus'
+NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'mxw/vim-jsx'
+NeoBundle 'miyakogi/seiya.vim'
+NeoBundle 'shawncplus/phpcomplete.vim'
 
 " colorscheme
 NeoBundle 'chriskempson/vim-tomorrow-theme'
@@ -85,6 +89,7 @@ NeoBundle 'nanotech/jellybeans.vim'
 NeoBundle 'hail2u/h2u_colorscheme'
 NeoBundle 'noahfrederick/vim-hemisu'
 NeoBundle 'mayansmoke'
+NeoBundle 'NLKNguyen/papercolor-theme'
 
 " gitとかで管理できないもの
 if isdirectory(expand('~/.vim'))

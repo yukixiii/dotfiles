@@ -1,3 +1,5 @@
+" vim:set noexpandtab shiftwidth=4 softtabstop=4 tabstop=4
+
 " encode.vim, neobundle.vimrcの読み込み "{{{
 " unix版
 if filereadable(expand('~/.vim/encode.vim'))
@@ -198,7 +200,7 @@ nmap ,a :<C-u>Unite buffer_tab file file_mru<CR>
 nmap ,t :<C-u>Unite buffer_tab<CR>
 nmap ,y :<C-u>Unite buffer<CR>
 nmap ,m :<C-u>Unite file_mru<CR>
-" map ,r :<C-u>Unite file_rec/async<CR>
+map ,r :<C-u>Unite file_rec/async<CR>
 " map ,p :<C-u>Unite file_rec/async:!<CR>
 nmap ,g :<C-u>UniteWithBufferDir file file/new directory/new<CR>
 nmap ,j :<C-u>Unite file file/new directory/new<CR>
@@ -454,7 +456,12 @@ if neobundle#is_installed('neocomplete')
 
 	" Recommended key-mappings.
 	" <CR>: close popup and save indent.
-	inoremap <expr><CR>  neocomplete#smart_close_popup() . "\<CR>"
+	inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+	function! s:my_cr_function()
+		return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
+		" For no inserting <CR> key.
+		"return pumvisible() ? "\<C-y>" : "\<CR>"
+	endfunction
 	" <TAB>: completion.
 	inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 	inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<TAB>"
@@ -478,7 +485,7 @@ if neobundle#is_installed('neocomplete')
 	autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 	autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 	autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-	" autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
+	autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
 	" autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
 
 	" Enable heavy omni completion.
@@ -489,7 +496,8 @@ if neobundle#is_installed('neocomplete')
 	  let g:neocomplete#force_omni_input_patterns = {}
 	endif
 	let g:neocomplete#sources#omni#input_patterns.php =
-	\ '[^. \t]->\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
+	\ '\h\w*\|[^. \t]->\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
+	" \ '[^. \t]->\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
 	let g:neocomplete#sources#omni#input_patterns.c =
 	\ '[^.[:digit:] *\t]\%(\.\|->\)\%(\h\w*\)\?'
 	let g:neocomplete#sources#omni#input_patterns.cpp =
@@ -509,12 +517,26 @@ if neobundle#is_installed('neocomplete')
 endif
 " }}}
 "------------------------------
+" neosnippet {{{
+"------------------------------
+if neobundle#is_installed('neosnippet')
+	let g:neosnippet#snippets_directory='~/.vim/neosnippet/snippets/'
+endif
+" }}}
+"------------------------------
 " Tsuquyomi {{{
 "------------------------------
 if neobundle#is_installed('tsuquyomi')
 	let g:tsuquyomi_disable_default_mappings = 1
 endif
-"}}}
+" }}}
+"------------------------------
+" vim-jsx {{{
+"------------------------------
+if neobundle#is_installed('vim-jsx')
+	let g:jsx_ext_required = 0
+endif
+" }}}
 "------------------------------
 " Vim-LaTeX {{{
 "------------------------------
@@ -551,7 +573,7 @@ if neobundle#is_installed('vim-latex')
 	"let g:Tex_ViewRule_pdf = 'firefox -new-window'
 	"let g:Tex_ViewRule_pdf = 'chromium --new-window'
 endif
-"}}}
+" }}}
 "------------------------------
 " TweetVim {{{
 "------------------------------
@@ -563,6 +585,14 @@ if neobundle#is_installed('TweetVim')
 	let g:tweetvim_display_username = 1
 	let g:tweetvim_buffer_name = '[buffer]'
 endif
+" }}}
+"------------------------------
+" colorscheme {{{
+"------------------------------
+if neobundle#is_installed('seiya.vim')
+	let g:seiya_auto_enable=1
+	colorscheme molokai
+endif
 "}}}
 "------------------------------
 " ローカル設定 {{{
@@ -570,5 +600,5 @@ endif
 if filereadable(expand('~/.vimrc.localmachine'))
 	source ~/.vimrc.localmachine
 endif
-"}}}
+" }}}
 "------------------------------

@@ -1,0 +1,35 @@
+snippet ci_php_class_file
+options head
+	<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+
+	class ${1:#:ClassName}${2: extends ${3:#:ExtendsClass\}} {
+		${0:TARGET}
+	}
+
+	/* End of file `expand('%:t')` */
+	/* Location: ./`expand('%')` */
+
+snippet ci_form_validate
+options head
+	$this->load->library("form_validation");
+	$rule_set = array(
+		array(
+			"field" => "${1}",
+			"label" => "${2}",
+			"rules" => "${3}",
+		),${4}
+	);
+	$this->form_validation->set_rules($rule_set);
+
+snippet ci_rule_array
+	array(
+		"field" => "${1}",
+		"label" => "${2}",
+		"rules" => "${3}",
+	),${4}
+
+snippet ci_output_json
+alias cioj
+	$this->output
+		->set_content_type('application/json')
+		->set_output(json_encode($${1:#:variable}));
