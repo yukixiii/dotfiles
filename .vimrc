@@ -125,7 +125,8 @@ set ambiwidth=double
 set breakindent
 
 " カーソル行列強調表示
-set cursorline
+" 重いのでオフ
+" set cursorline
 " set cursorcolumn
 
 " ステータスラインに文字コードBOM16進表示
@@ -217,8 +218,6 @@ nmap <Leader>gr :<C-u>Unite grep -no-quit<CR>
 
 nmap <Leader>tw :<C-u>Unite tweetvim<CR>
 nmap <Leader>n :<C-u>TweetVimSay<CR>
-
-nmap <Space> <Plug>(easymotion-prefix)
 " }}}
 " insert mode {{{
 " インサートモードでもHJKL移動
@@ -338,7 +337,36 @@ endif
 "------------------------------
 " vim-easymotionの設定 {{{
 "------------------------------
-let g:EasyMotion_leader_key = '<Space>'
+if neobundle#is_installed('vim-easymotion')
+	" let g:EasyMotion_leader_key = '<Space>'
+	nmap <Space> <Plug>(easymotion-prefix)
+	" nmap s <Plug>(easymotion-s2)
+
+	" <Leader>f{char} to move to {char}
+	map  <Plug>(easymotion-prefix)f <Plug>(easymotion-bd-f)
+	nmap <Plug>(easymotion-prefix)f <Plug>(easymotion-overwin-f)
+
+	" s{char}{char} to move to {char}{char}
+	nmap s <Plug>(easymotion-overwin-f2)
+	vmap s <Plug>(easymotion-bd-f2)
+
+	" Move to line
+	map <Plug>(easymotion-prefix)l <Plug>(easymotion-bd-jk)
+	nmap <Plug>(easymotion-prefix)l <Plug>(easymotion-overwin-line)
+
+	" Move to word
+	map  <Plug>(easymotion-prefix)w <Plug>(easymotion-bd-w)
+	nmap <Plug>(easymotion-prefix)w <Plug>(easymotion-overwin-w)
+endif
+" }}}
+"------------------------------
+" incsearch.vimの設定 {{{
+"------------------------------
+if neobundle#is_installed('incsearch.vim')
+	map /  <Plug>(incsearch-forward)
+	map ?  <Plug>(incsearch-backward)
+	map g/ <Plug>(incsearch-stay)
+endif
 " }}}
 "------------------------------
 " dbg.vimの設定 {{{
@@ -589,10 +617,10 @@ endif
 "------------------------------
 " colorscheme {{{
 "------------------------------
-if neobundle#is_installed('seiya.vim')
-	let g:seiya_auto_enable=1
-	colorscheme molokai
-endif
+" if neobundle#is_installed('seiya.vim')
+" 	let g:seiya_auto_enable=1
+" 	colorscheme molokai
+" endif
 "}}}
 "------------------------------
 " ローカル設定 {{{
