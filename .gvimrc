@@ -13,8 +13,9 @@ set background=dark
 " setup font
 if has('unix')
 	" set guifont=Ricty\ Diminished\ 12
-	set guifont=Hermit\ medium\ 9
-	set guifontwide=うずらフォント\ 10
+	set guifont=Hermit\ medium\ 10
+	set guifontwide=うずらフォント\ 11
+	set linespace=-3
 elseif has('win64') || has('win32')
 	set guifont=Ricty_Diminished_Discord:h10:cSHIFTJIS
 endif
