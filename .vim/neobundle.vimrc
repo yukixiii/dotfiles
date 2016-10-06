@@ -78,6 +78,7 @@ NeoBundle 'mxw/vim-jsx'
 NeoBundle 'miyakogi/seiya.vim'
 NeoBundle 'shawncplus/phpcomplete.vim'
 NeoBundle 'nathanaelkane/vim-indent-guides'
+NeoBundle 'dbext.vim'
 
 " colorscheme
 NeoBundle 'chriskempson/vim-tomorrow-theme'
