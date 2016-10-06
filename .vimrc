@@ -330,9 +330,9 @@ endif
 "------------------------------
 " Airlineの設定 {{{
 "------------------------------
-if neobundle#is_installed('vim-airline')
-	let g:airline#extensions#tabline#enabled = 1
-endif
+" if neobundle#is_installed('vim-airline')
+" 	let g:airline#extensions#tabline#enabled = 1
+" endif
 " }}}
 "------------------------------
 " vim-easymotionの設定 {{{
