@@ -42,7 +42,11 @@ set undodir=~/.vimundo
 set backspace=indent,eol,start
 
 " クリップボードと無名レジスタの共有
-set clipboard+=unnamed
+if has('unnamedplus')
+	set clipboard=unnamedplus
+else
+	set clipboard+=unnamed
+endif
 
 " 矩形ヴィジュアルモードでフリーカーソル
 set virtualedit=block
@@ -196,6 +200,9 @@ nnoremap <Leader>r :<C-u>e ++ff=
 nnoremap <Leader>fe :<C-u>set fileencoding=
 nnoremap <Leader>ff :<C-u>set fileformat=
 
+" filetypeの設定
+nnoremap <Leader>ft :<C-u>set filetype=
+
 " Plugin
 nmap ,a :<C-u>Unite buffer_tab file file_mru<CR>
 nmap ,t :<C-u>Unite buffer_tab<CR>
@@ -221,15 +228,13 @@ nmap <Leader>n :<C-u>TweetVimSay<CR>
 " }}}
 " insert mode {{{
 " インサートモードでもHJKL移動
-imap <C-h> <Left>
-imap <C-j> <Down>
-imap <C-k> <Up>
-imap <C-l> <Right>
+" imap <C-h> <Left>
+" imap <C-j> <Down>
+" imap <C-k> <Up>
+" imap <C-l> <Right>
 " Escのキーバインド
 inoremap <C-c> <Esc>
-inoremap <C-f> <Esc>
-" 「日本語入力固定モード」切替キー
-inoremap <silent> <C-o> <C-^><C-r>=IMState('FixMode')<CR>
+" inoremap <C-f> <Esc>
 " }}}
 " visual mode {{{
 " 選択中にF3キーで選択中の文字列検索
@@ -279,10 +284,20 @@ if neobundle#is_installed('vim-colors-solarized')
 endif
 " }}}
 "------------------------------
-" Alignの設定 {{{
+" im_controlの設定 {{{
 "------------------------------
-if neobundle#is_installed('Align')
-	let g:Align_xstrlen = 3
+if neobundle#is_installed('vim-colors-solarized') && has('unix')
+	" 「日本語入力固定モード」切替キー
+	let IM_CtrlMode = 6
+	inoremap <silent> <C-o> <C-^><C-r>=IMState('FixMode')<CR>
+endif
+" }}}
+"------------------------------
+" vim-easy-alignの設定 {{{
+"------------------------------
+if neobundle#is_installed('vim-easy-align')
+	" Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
+	vmap <Enter> <Plug>(EasyAlign)
 endif
 " }}}
 "------------------------------
@@ -325,6 +340,13 @@ if neobundle#is_installed('unite.vim')
 	call unite#custom#profile('default', 'context', {
 				\   'start_insert' : 1
 				\ })
+
+	" unite grepにhw(highway)を使う
+	if executable('hw')
+		let g:unite_source_grep_command = 'hw'
+		let g:unite_source_grep_default_opts = '--no-group --no-color'
+		let g:unite_source_grep_recursive_opt = ''
+	endif
 endif
 " }}}
 "------------------------------
