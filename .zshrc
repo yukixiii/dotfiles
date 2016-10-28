@@ -9,7 +9,8 @@ export KCODE=u           # KCODEにUTF-8を設定
 export AUTOFEATURE=true  # autotestでfeatureを動かす
 
 # bindkey -e               # キーバインドをemacsモードに設定
-bindkey -v              # キーバインドをviモードに設定
+bindkey -v               # キーバインドをviモードに設定
+export KEYTIMEOUT=1      # Esc時のタイムラグを0.1秒に設定
 
 setopt no_beep           # ビープ音を鳴らさないようにする
 setopt auto_cd           # ディレクトリ名の入力のみで移動する
