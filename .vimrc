@@ -128,6 +128,11 @@ set ambiwidth=double
 " 折り返し時のインデント
 set breakindent
 
+" 折りたたみテキスト変更
+if neobundle#is_installed('foldCC.vim')
+	set foldtext=FoldCCtext()
+endif
+
 " カーソル行列強調表示
 " 重いのでオフ
 " set cursorline
@@ -208,8 +213,8 @@ nmap ,a :<C-u>Unite buffer_tab file file_mru<CR>
 nmap ,t :<C-u>Unite buffer_tab<CR>
 nmap ,y :<C-u>Unite buffer<CR>
 nmap ,m :<C-u>Unite file_mru<CR>
-map ,r :<C-u>Unite file_rec/async<CR>
-" map ,p :<C-u>Unite file_rec/async:!<CR>
+nmap ,r :<C-u>Unite file_rec/async<CR>
+nmap ,p :<C-u>Unite file_rec/async:!<CR>
 nmap ,g :<C-u>UniteWithBufferDir file file/new directory/new<CR>
 nmap ,j :<C-u>Unite file file/new directory/new<CR>
 nmap ,f :<C-u>VimFiler<CR>
@@ -220,6 +225,7 @@ nmap ,b :<C-u>Unite bookmark:default -input=[<CR>
 nmap ,v :<C-u>Unite bookmark:default -input=[ -default-action=vimfiler<CR>
 nmap ,/ :<C-u>Unite line -start-insert<CR>
 nmap ,n/ :<C-u>Unite line -start-insert -no-quit<CR>
+nmap ,e :<C-u>UniteResume<CR>
 nmap <Leader>o :<C-u>Unite outline<CR>
 nmap <Leader>gr :<C-u>Unite grep -no-quit<CR>
 
@@ -342,10 +348,10 @@ if neobundle#is_installed('unite.vim')
 				\ })
 
 	" unite grepにhw(highway)を使う
-	if executable('hw')
-		let g:unite_source_grep_command = 'hw'
-		let g:unite_source_grep_default_opts = '--no-group --no-color'
-		let g:unite_source_grep_recursive_opt = ''
+	if executable('jvgrep')
+		let g:unite_source_grep_command = 'jvgrep'
+		let g:unite_source_grep_default_opts = '-r'
+		let g:unite_source_grep_recursive_opt = '-R'
 	endif
 endif
 " }}}
@@ -556,7 +562,8 @@ if neobundle#is_installed('neocomplete')
 	\ '[^. *\t]\.\w*\|\h\w*::'
 	" \ '\h\w*\|[^. \t]\.\w*'
 
-	" let g:neocomplete#omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
+	let g:monster#completion#rcodetools#backend = "async_rct_complete"
+	let g:neocomplete#sources#omni#input_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
 	let g:neocomplete#force_omni_input_patterns.java =
 	\ '\k\.\k*'
 	" \ '\%(\h\w*\|)\)\.\w*'

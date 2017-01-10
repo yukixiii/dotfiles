@@ -80,6 +80,12 @@ NeoBundle 'miyakogi/seiya.vim'
 NeoBundle 'shawncplus/phpcomplete.vim'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'dbext.vim'
+NeoBundle 'LeafCage/foldCC.vim'
+" ruby
+NeoBundle 'todesking/ruby_hl_lvar.vim'
+NeoBundle 'yuku-t/vim-ref-ri'
+NeoBundle 'rhysd/unite-ruby-require.vim'
+NeoBundle 'osyo-manga/vim-monster'
 
 " colorscheme
 NeoBundle 'chriskempson/vim-tomorrow-theme'
