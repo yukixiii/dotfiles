@@ -120,11 +120,17 @@ case "${OSTYPE}" in
   ;;
 esac
 
+### rbenv ###
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+
 ### Aliases ###
 alias r=rails
 alias v=vim
 alias ls='ls --color=auto'
 alias la='ls -a'
+alias l='ls -lh'
+alias ll='ls -lha'
 
 # alias mosh='LC_CTYPE=en_US.UTF-8 LC_MESSAGES=en_US.UTF-8 LC_ALL=en_US.UTF-8 mosh'
 
