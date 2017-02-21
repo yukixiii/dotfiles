@@ -77,6 +77,7 @@ set foldmethod=marker
 set tabstop=4 " 画面上でのタブの空白数
 set shiftwidth=4 " autoindentや>>などでずれる幅
 set softtabstop=4 " <Tab><BS>を打った時の動く幅
+set expandtab " タブをスペースに展開する
 
 " 分割時に右、下にフォーカス
 set splitbelow
@@ -367,7 +368,7 @@ endif
 "------------------------------
 if neobundle#is_installed('vim-easymotion')
 	" let g:EasyMotion_leader_key = '<Space>'
-	nmap <Space> <Plug>(easymotion-prefix)
+	map <Space> <Plug>(easymotion-prefix)
 	" nmap s <Plug>(easymotion-s2)
 
 	" <Leader>f{char} to move to {char}
