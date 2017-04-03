@@ -87,9 +87,6 @@ set splitright
 if exists('+shellslash')
 	set shellslash
 endif
-
-" 日本語入力固定モードIBus+Python
-let IM_CtrlIBusPython = 1
 " }}}
 "-------------------------------
 " 表示設定 {{{
@@ -293,7 +290,7 @@ endif
 "------------------------------
 " im_controlの設定 {{{
 "------------------------------
-if neobundle#is_installed('vim-colors-solarized') && has('unix')
+if neobundle#is_installed('im_control.vim') && has('unix')
 	" 「日本語入力固定モード」切替キー
 	let IM_CtrlMode = 6
 	inoremap <silent> <C-o> <C-^><C-r>=IMState('FixMode')<CR>
@@ -325,9 +322,6 @@ endif
 " Unite.vimの設定 {{{
 "------------------------------
 if neobundle#is_installed('unite.vim')
-	let g:unite_source_rec_async_command =
-				\ ['ag', '--follow', '--nocolor', '--nogroup',
-				\  '--hidden', '-g', '']
 	let g:unite_source_file_rec_max_cache_files = 100000
 
 	" Start insert mode in unite-action buffer.
@@ -348,10 +342,11 @@ if neobundle#is_installed('unite.vim')
 				\   'start_insert' : 1
 				\ })
 
-	" unite grepにhw(highway)を使う
+	" unite grepにjvgrepを使う
 	if executable('jvgrep')
 		let g:unite_source_grep_command = 'jvgrep'
-		let g:unite_source_grep_default_opts = '-r'
+		let g:unite_source_grep_default_opts =
+					\ '-i --exclude ''\.(git|svn|hg|bzr)'''
 		let g:unite_source_grep_recursive_opt = '-R'
 	endif
 endif
