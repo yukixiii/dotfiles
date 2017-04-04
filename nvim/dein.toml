@@ -1,0 +1,133 @@
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+# [[plugins]]
+# repo = 'tyru/open-browser.vim'
+
+[[plugins]]
+repo = 'tyru/caw.vim'
+
+[[plugins]]
+repo = 'basyura/twibill.vim'
+
+[[plugins]]
+repo = 'basyura/TweetVim'
+hook_source = '''
+let g:tweetvim_tweet_per_page = 200
+let g:tweetvim_display_source = 1
+let g:tweetvim_display_time = 1
+let g:tweetvim_async_post = 1
+let g:tweetvim_display_username = 1
+let g:tweetvim_buffer_name = '[buffer]'
+'''
+
+[[plugins]]
+repo = 'surround.vim'
+
+[[plugins]]
+repo = 'easymotion/vim-easymotion'
+hook_add = '''
+" let g:EasyMotion_leader_key = '<Space>'
+map <Space> <Plug>(easymotion-prefix)
+" nmap s <Plug>(easymotion-s2)
+
+" <Leader>f{char} to move to {char}
+map  <Plug>(easymotion-prefix)f <Plug>(easymotion-bd-f)
+nmap <Plug>(easymotion-prefix)f <Plug>(easymotion-overwin-f)
+
+" s{char}{char} to move to {char}{char}
+nmap s <Plug>(easymotion-overwin-f2)
+vmap s <Plug>(easymotion-bd-f2)
+
+" Move to line
+map <Plug>(easymotion-prefix)l <Plug>(easymotion-bd-jk)
+nmap <Plug>(easymotion-prefix)l <Plug>(easymotion-overwin-line)
+
+" Move to word
+map  <Plug>(easymotion-prefix)w <Plug>(easymotion-bd-w)
+nmap <Plug>(easymotion-prefix)w <Plug>(easymotion-overwin-w)
+'''
+
+[[plugins]]
+repo = 'junegunn/vim-easy-align'
+hook_add = '''
+vmap <Enter> <Plug>(EasyAlign)
+'''
+
+[[plugins]]
+repo = 'haya14busa/incsearch.vim'
+
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+
+[[plugins]]
+repo = 'mattn/emmet-vim'
+
+[[plugins]]
+repo = 'Shougo/unite-outline'
+
+[[plugins]]
+repo = 'tsukkee/unite-tag'
+
+[[plugins]]
+repo = 'will133/vim-dirdiff'
+
+[[plugins]]
+repo = 'fuenor/qfixhowm'
+
+[[plugins]]
+repo = 'fuenor/im_control.vim'
+
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+depends = 'context_filetype.vim'
+if = "has('nvim')"
+on_i = 1
+hook_source = '''
+let g:deoplete#enable_at_startup = 1
+source ~/.config/nvim/rc/deoplete.rc.vim
+'''
+
+# ==========================================================
+# color
+# ==========================================================
+[[plugins]]
+repo = 'chriskempson/vim-tomorrow-theme'
+
+[[plugins]]
+repo = 'tomasr/molokai'
+
+[[plugins]]
+repo = 'altercation/vim-colors-solarized'
+hook_source = '''
+let g:solarized_visibility = "low"
+let g:solarized_italic = 0
+let g:solarized_underline = 0
+'''
+
+[[plugins]]
+repo = 'w0ng/vim-hybrid'
+
+[[plugins]]
+repo = 'newspaper.vim'
+
+[[plugins]]
+repo = 'GGalizzi/cake-vim'
+
+[[plugins]]
+repo = 'aereal/vim-colors-japanesque'
+
+[[plugins]]
+repo = 'nanotech/jellybeans.vim'
+
+[[plugins]]
+repo = 'hail2u/h2u_colorscheme'
+
+[[plugins]]
+repo = 'noahfrederick/vim-hemisu'
+
+[[plugins]]
+repo = 'mayansmoke'
+
+[[plugins]]
+repo = 'NLKNguyen/papercolor-theme'

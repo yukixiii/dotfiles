@@ -1,0 +1,34 @@
+[[plugins]]
+repo = 'Shougo/neomru.vim'
+
+[[plugins]]
+repo = 'Shougo/vimproc.vim'
+build = 'make'
+on_source = ['unite.vim', 'vimshell.vim']
+
+[[plugins]]
+repo = 'Shougo/unite.vim'
+depends = 'neomru.vim'
+on_source = 'denite.nvim'
+hook_source = 'source ~/.config/nvim/rc/unite.rc.vim'
+
+[[plugins]]
+repo = 'Shougo/vimfiler.vim'
+depends = 'unite.vim'
+on_map = {n = '<Plug>'}
+on_if = "isdirectory(bufname('%'))"
+hook_source = 'source ~/.config/nvim/rc/vimfiler.rc.vim'
+hook_add = '''
+nmap ,f :<C-u>VimFiler<CR>
+nmap ,d :<C-u>VimFilerBufferDir<CR>
+'''
+
+[[plugins]]
+repo = 'thinca/vim-ref'
+on_map = {n = '<Plug>'}
+hook_source = '''
+let g:ref_phpmanual_path = expand('~/php-chunked-xhtml')
+'''
+
+[[plugins]]
+repo = 'tyru/open-browser.vim'
