@@ -1,4 +1,4 @@
-" vim:set noexpandtab shiftwidth=4 softtabstop=4 tabstop=4
+" vim: noexpandtab shiftwidth=4 softtabstop=4 tabstop=4
 
 " encode.vim, neobundle.vimrcの読み込み "{{{
 " unix版
@@ -119,6 +119,7 @@ colorscheme ron
 
 " 端末色数
 set t_Co=256
+" set termguicolors
 
 " 特殊記号の幅
 set ambiwidth=double
