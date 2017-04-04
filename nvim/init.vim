@@ -90,13 +90,13 @@ set listchars=tab:^\ ,trail:~
 " 検索時にハイライト表示
 set hlsearch
 
-" colorscheme
-colorscheme PaperColor
-set bg=dark
-
 " 端末色数
 " set t_Co=256
 set termguicolors
+
+" colorscheme
+colorscheme PaperColor
+set background=dark
 
 " 特殊記号の幅
 set ambiwidth=double
