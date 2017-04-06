@@ -327,6 +327,10 @@ endif
 if neobundle#is_installed('unite.vim')
 	let g:unite_source_file_rec_max_cache_files = 100000
 
+	let g:unite_source_rec_async_command =
+				\ ['ag', '--follow', '--nocolor', '--nogroup',
+				\  '--hidden', '-g', '']
+
 	" Start insert mode in unite-action buffer.
 	call unite#custom#profile('action', 'context', {
 				\   'start_insert' : 1
