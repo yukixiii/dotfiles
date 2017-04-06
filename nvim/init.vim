@@ -3,6 +3,10 @@ if filereadable(expand('~/.config/nvim/dein.rc.vim'))
 	source ~/.config/nvim/dein.rc.vim
 endif
 
+if filereadable(expand('~/.vim/encode.vim'))
+	source ~/.vim/encode.vim
+endif
+
 "-------------------------------
 " 編集設定 {{{
 "-------------------------------

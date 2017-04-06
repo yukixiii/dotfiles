@@ -7,10 +7,57 @@ build = 'make'
 on_source = ['unite.vim', 'vimshell.vim']
 
 [[plugins]]
+repo = 'Shougo/neocomplete.vim'
+if = "has('lua')"
+on_event = 'InsertEnter'
+hook_source = '''
+	let g:neocomplete#enable_at_startup = 1
+	source ~/.config/nvim/rc/neocomplete.rc.vim
+'''
+
+[[plugins]]
+repo = 'Shougo/neosnippet.vim'
+depends = ['neosnippet-snippets']
+on_event = 'InsertCharPre'
+on_ft = 'snippet'
+hook_source = '''
+	" snippets
+	imap <C-d> <Plug>(neosnippet_expand_or_jump)
+	smap <C-d> <Plug>(neosnippet_expand_or_jump)
+	xmap <C-d> <Plug>(neosnippet_expand_target)
+'''
+
+[[plugins]]
 repo = 'Shougo/unite.vim'
 depends = 'neomru.vim'
 on_source = 'denite.nvim'
 hook_source = 'source ~/.config/nvim/rc/unite.rc.vim'
+hook_add = '''
+	" nmap ,a :<C-u>Unite buffer_tab file file_mru<CR>
+	nmap ,t :<C-u>Unite buffer_tab<CR>
+	nmap ,g :<C-u>UniteWithBufferDir file file/new directory/new<CR>
+	nmap ,j :<C-u>Unite file file/new directory/new<CR>
+	nmap ,b :<C-u>Unite bookmark:default -input=[<CR>
+	nmap ,v :<C-u>Unite bookmark:default -input=[ -default-action=vimfiler<CR>
+	nmap ,e :<C-u>UniteResume<CR>
+	nmap <Leader>o :<C-u>Unite outline<CR>
+'''
+
+[[plugins]]
+repo = 'Shougo/denite.nvim'
+on_cmd = 'Denite'
+hook_source = 'source ~/.config/nvim/rc/denite.rc.vim'
+hook_add = '''
+	" nmap ,a :<C-u>Denite buffer_tab file file_mru<CR>
+	nmap ,y :<C-u>Denite buffer<CR>
+	nmap ,m :<C-u>Denite file_mru<CR>
+	nmap ,r :<C-u>Denite file_rec<CR>
+	nmap ,p :<C-u>Denite file_rec/git<CR>
+	nmap ,/ :<C-u>Denite line<CR>
+	nmap ,n/ :<C-u>Denite line -no-quit<CR>
+	nmap ,w :<C-u>Denite -resume<CR>
+	nmap <Leader>gr :<C-u>Denite grep -no-quit<CR>
+'''
 
 [[plugins]]
 repo = 'Shougo/vimfiler.vim'
@@ -19,15 +66,19 @@ on_map = {n = '<Plug>'}
 on_if = "isdirectory(bufname('%'))"
 hook_source = 'source ~/.config/nvim/rc/vimfiler.rc.vim'
 hook_add = '''
-nmap ,f :<C-u>VimFiler<CR>
-nmap ,d :<C-u>VimFilerBufferDir<CR>
+	nmap ,f :<C-u>VimFiler<CR>
+	nmap ,d :<C-u>VimFilerBufferDir<CR>
 '''
+
+[[plugins]]
+repo = 'Shougo/neoinclude.vim'
+on_if = 1
 
 [[plugins]]
 repo = 'thinca/vim-ref'
 on_map = {n = '<Plug>'}
 hook_source = '''
-let g:ref_phpmanual_path = expand('~/php-chunked-xhtml')
+	let g:ref_phpmanual_path = expand('~/php-chunked-xhtml')
 '''
 
 [[plugins]]

@@ -27,25 +27,25 @@ repo = 'surround.vim'
 [[plugins]]
 repo = 'easymotion/vim-easymotion'
 hook_add = '''
-" let g:EasyMotion_leader_key = '<Space>'
-map <Space> <Plug>(easymotion-prefix)
-" nmap s <Plug>(easymotion-s2)
+	" let g:EasyMotion_leader_key = '<Space>'
+	map <Space> <Plug>(easymotion-prefix)
+	" nmap s <Plug>(easymotion-s2)
 
-" <Leader>f{char} to move to {char}
-map  <Plug>(easymotion-prefix)f <Plug>(easymotion-bd-f)
-nmap <Plug>(easymotion-prefix)f <Plug>(easymotion-overwin-f)
+	" <Leader>f{char} to move to {char}
+	map  <Plug>(easymotion-prefix)f <Plug>(easymotion-bd-f)
+	nmap <Plug>(easymotion-prefix)f <Plug>(easymotion-overwin-f)
 
-" s{char}{char} to move to {char}{char}
-nmap s <Plug>(easymotion-overwin-f2)
-vmap s <Plug>(easymotion-bd-f2)
+	" s{char}{char} to move to {char}{char}
+	nmap s <Plug>(easymotion-overwin-f2)
+	vmap s <Plug>(easymotion-bd-f2)
 
-" Move to line
-map <Plug>(easymotion-prefix)l <Plug>(easymotion-bd-jk)
-nmap <Plug>(easymotion-prefix)l <Plug>(easymotion-overwin-line)
+	" Move to line
+	map <Plug>(easymotion-prefix)l <Plug>(easymotion-bd-jk)
+	nmap <Plug>(easymotion-prefix)l <Plug>(easymotion-overwin-line)
 
-" Move to word
-map  <Plug>(easymotion-prefix)w <Plug>(easymotion-bd-w)
-nmap <Plug>(easymotion-prefix)w <Plug>(easymotion-overwin-w)
+	" Move to word
+	map  <Plug>(easymotion-prefix)w <Plug>(easymotion-bd-w)
+	nmap <Plug>(easymotion-prefix)w <Plug>(easymotion-overwin-w)
 '''
 
 [[plugins]]
@@ -53,6 +53,9 @@ repo = 'junegunn/vim-easy-align'
 hook_add = '''
 vmap <Enter> <Plug>(EasyAlign)
 '''
+
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
 
 [[plugins]]
 repo = 'haya14busa/incsearch.vim'
@@ -80,13 +83,18 @@ repo = 'fuenor/im_control.vim'
 
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
-depends = 'context_filetype.vim'
 if = "has('nvim')"
 on_i = 1
 hook_source = '''
-let g:deoplete#enable_at_startup = 1
-source ~/.config/nvim/rc/deoplete.rc.vim
+	let g:deoplete#enable_at_startup = 1
+	source ~/.config/nvim/rc/deoplete.rc.vim
 '''
+
+[[plugins]]
+repo = 'vim-jp/vimdoc-ja'
+
+[[plugins]]
+repo = 'shawncplus/phpcomplete.vim'
 
 # ==========================================================
 # color
