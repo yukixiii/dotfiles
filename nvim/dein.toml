@@ -96,6 +96,9 @@ repo = 'vim-jp/vimdoc-ja'
 [[plugins]]
 repo = 'shawncplus/phpcomplete.vim'
 
+[[plugins]]
+repo = 'nixprime/cpsm'
+
 # ==========================================================
 # color
 # ==========================================================
