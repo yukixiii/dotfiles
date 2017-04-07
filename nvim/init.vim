@@ -183,6 +183,9 @@ nnoremap <Leader>ff :<C-u>set fileformat=
 " filetypeの設定
 nnoremap <Leader>ft :<C-u>set filetype=
 
+" terminal emulator
+nmap ,sh :<C-u>terminal<CR>
+
 " Plugin
 " nmap ,a :<C-u>Unite buffer_tab file file_mru<CR>
 " nmap ,t :<C-u>Unite buffer_tab<CR>

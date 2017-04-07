@@ -28,7 +28,7 @@ repo = 'Shougo/deol.nvim'
 on_cmd = 'Deol'
 on_source = 'denite.nvim'
 hook_add = '''
-
+	" nmap ,sh :<C-u>Deol<CR>
 '''
 hook_source = '''
 	set shell=zsh
