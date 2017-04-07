@@ -99,6 +99,9 @@ repo = 'shawncplus/phpcomplete.vim'
 [[plugins]]
 repo = 'nixprime/cpsm'
 
+[[plugins]]
+repo = 'kana/vim-tabpagecd'
+
 # ==========================================================
 # color
 # ==========================================================
