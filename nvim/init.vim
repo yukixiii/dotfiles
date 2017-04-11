@@ -173,7 +173,6 @@ nnoremap l <Right>zv
 nnoremap <Leader>u :<C-u>e ++enc=utf-8<CR>
 nnoremap <Leader>c :<C-u>e ++enc=cp932<CR>
 nnoremap <Leader>e :<C-u>e ++enc=euc-jp<CR>
-nnoremap <Leader>q :<C-u>e ++enc=
 nnoremap <Leader>r :<C-u>e ++ff=
 
 " 改行コード、文字コードの設定
