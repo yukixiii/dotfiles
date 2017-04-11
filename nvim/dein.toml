@@ -145,3 +145,9 @@ repo = 'mayansmoke'
 
 [[plugins]]
 repo = 'NLKNguyen/papercolor-theme'
+
+[[plugins]]
+repo = 'mhinz/vim-janah'
+
+[[plugins]]
+repo = 'atelierbram/Base2Tone-vim'
