@@ -62,8 +62,8 @@ let g:deoplete#keyword_patterns.tex = '[^\w|\s][a-zA-Z_]\w*'
 let g:deoplete#omni#input_patterns = {}
 let g:deoplete#omni#input_patterns.python = ''
 " let g:deoplete#omni#input_patterns.php = '\h\w*\|[^. \t]->\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
-" let g:deoplete#omni#input_patterns.php =
-"             \ '\w+|[^. \t]->\w*|\w+::\w*'
+let g:deoplete#omni#input_patterns.php =
+            \ '\w+|[^. \t]->\w*|\w+::\w*'
 let g:deoplete#omni#functions = {}
 
 " inoremap <silent><expr> <C-t> deoplete#manual_complete('file')
@@ -80,4 +80,4 @@ let g:deoplete#skip_chars = ['(', ')']
 " call deoplete#custom#set('clang', 'debug_enabled', 1)
 
 
-" autocmd  FileType  php setlocal omnifunc=phpcomplete_extended#CompletePHP
+autocmd  FileType  php setlocal omnifunc=phpcomplete_extended#CompletePHP
