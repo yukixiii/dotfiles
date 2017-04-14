@@ -8,7 +8,7 @@ https://www.colinodell.com/blog/2016-12/installing-php-7-1
 ```
 sudo add-apt-repository ppa:ondrej/php
 sudo apt-get update
-sudo apt-get install php7.1-cli
+sudo apt-get install php7.1-cli php7.1-xml php7.1-curl php7.1-dev
 ```
 サーバーは必要ないのでcli。
 
@@ -26,6 +26,20 @@ sudo mv composer.phar /usr/local/bin/composer
 ### padawan
 https://github.com/padawan-php/padawan.php
 https://github.com/padawan-php/deoplete-padawan
+
+なんか普通にインストールしても何故か動かない問題↓
+https://github.com/padawan-php/padawan.php/issues/95
+```
+{
+    "minimum-stability": "dev"
+}
+```
+とだけ書いたcomposer.jsonを~/.config/composerに用意してから、
+```
+composer global require mkusher/padawan:dev-master
+```
+とする
+
 
 ## ctags
 ```

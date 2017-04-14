@@ -24,10 +24,10 @@ inoremap <expr><C-g> deoplete#undo_completion()
 inoremap <expr><C-l>       deoplete#refresh()
 
 " <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function() abort
-  return deoplete#cancel_popup() . "\<CR>"
-endfunction
+" inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+" function! s:my_cr_function() abort
+"   return deoplete#cancel_popup() . "\<CR>"
+" endfunction
 
 inoremap <expr> '  pumvisible() ? deoplete#close_popup() : "'"
 
@@ -61,6 +61,9 @@ let g:deoplete#keyword_patterns.tex = '[^\w|\s][a-zA-Z_]\w*'
 
 let g:deoplete#omni#input_patterns = {}
 let g:deoplete#omni#input_patterns.python = ''
+" let g:deoplete#omni#input_patterns.php = '\h\w*\|[^. \t]->\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
+" let g:deoplete#omni#input_patterns.php =
+"             \ '\w+|[^. \t]->\w*|\w+::\w*'
 let g:deoplete#omni#functions = {}
 
 " inoremap <silent><expr> <C-t> deoplete#manual_complete('file')
@@ -75,3 +78,6 @@ let g:deoplete#skip_chars = ['(', ')']
 " let g:deoplete#enable_profile = 1
 " call deoplete#enable_logging('DEBUG', 'deoplete.log')
 " call deoplete#custom#set('clang', 'debug_enabled', 1)
+
+
+" autocmd  FileType  php setlocal omnifunc=phpcomplete_extended#CompletePHP

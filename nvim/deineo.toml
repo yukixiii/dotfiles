@@ -2,7 +2,7 @@
 repo = 'tweekmonster/deoplete-clang2'
 on_ft = ['c', 'cpp']
 hook_source = '''
-  let b:clang2_orig_maps = {}
+	let b:clang2_orig_maps = {}
 '''
 
 [[plugins]]
@@ -13,6 +13,17 @@ on_ft = 'python'
 repo = 'zchee/deoplete-go'
 on_i = 1
 on_ft = 'go'
+
+# [[plugins]]
+# repo = 'padawan-php/deoplete-padawan'
+# on_ft = 'php'
+
+# [[plugins]]
+# repo = 'm2mdas/phpcomplete-extended'
+# on_ft = 'php'
+# hook_add = '''
+# 	g:phpcomplete_index_composer_command = 'composer'
+# '''
 
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'

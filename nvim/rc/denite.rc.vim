@@ -46,6 +46,9 @@ call denite#custom#var('file_rec/git', 'command',
 " Change default prompt
 call denite#custom#option('default', 'prompt', '>')
 
+" Change default updatetime
+call denite#custom#option('default', 'updatetime', '50')
+
 " Change ignore_globs
 call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
 			\ [ '.git/', '.ropeproject/', '__pycache__/',

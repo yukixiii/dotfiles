@@ -40,7 +40,7 @@ hook_add = '''
 	nmap ,b :<C-u>Unite bookmark:default -input=[<CR>
 	nmap ,v :<C-u>Unite bookmark:default -input=[ -default-action=vimfiler<CR>
 	nmap ,e :<C-u>UniteResume<CR>
-	nmap <Leader>o :<C-u>Unite outline<CR>
+	" nmap <Leader>o :<C-u>Unite outline<CR>
 '''
 
 [[plugins]]
@@ -56,7 +56,8 @@ hook_add = '''
 	nmap ,/ :<C-u>Denite line<CR>
 	nmap ,n/ :<C-u>Denite line -no-quit<CR>
 	nmap ,w :<C-u>Denite -resume<CR>
-	nmap <Leader>gr :<C-u>Denite grep -no-quit<CR>
+	nmap <Leader>gr :<C-u>Denite grep -updatetime=500<CR>
+	nmap <Leader>o :<C-u>Denite outline<CR>
 '''
 
 [[plugins]]
