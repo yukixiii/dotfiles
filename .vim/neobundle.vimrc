@@ -100,6 +100,7 @@ NeoBundle 'hail2u/h2u_colorscheme'
 NeoBundle 'noahfrederick/vim-hemisu'
 NeoBundle 'mayansmoke'
 NeoBundle 'NLKNguyen/papercolor-theme'
+NeoBundle 'morhetz/gruvbox'
 
 " gitとかで管理できないもの
 if isdirectory(expand('~/.vim'))

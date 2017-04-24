@@ -29,8 +29,6 @@ inoremap <expr><C-l>       deoplete#refresh()
 "   return deoplete#cancel_popup() . "\<CR>"
 " endfunction
 
-inoremap <expr> '  pumvisible() ? deoplete#close_popup() : "'"
-
 " call deoplete#custom#set('_', 'matchers', ['matcher_head'])
 call deoplete#custom#set('ghc', 'sorters', ['sorter_word'])
 " call deoplete#custom#set('buffer', 'mark', '')

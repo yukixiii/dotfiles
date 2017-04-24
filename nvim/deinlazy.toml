@@ -76,13 +76,6 @@ repo = 'Shougo/neoinclude.vim'
 on_if = 1
 
 [[plugins]]
-repo = 'thinca/vim-ref'
-on_map = {n = '<Plug>'}
-hook_source = '''
-	let g:ref_phpmanual_path = expand('~/php-chunked-xhtml')
-'''
-
-[[plugins]]
 repo = 'tyru/open-browser.vim'
 
 [[plugins]]

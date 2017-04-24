@@ -99,8 +99,8 @@ set hlsearch
 set termguicolors
 
 " colorscheme
-colorscheme PaperColor
-set background=dark
+colorscheme gruvbox
+set background=light
 
 " 特殊記号の幅
 set ambiwidth=double
