@@ -71,6 +71,7 @@ export CLICOLOR=true
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
 ### Prompt ###
+# autoload -U promptinit; promptinit
 # プロンプトに色を付ける
 autoload -U colors; colors
 # 一般ユーザ時
@@ -121,12 +122,12 @@ case "${OSTYPE}" in
 esac
 
 ### rbenv ###
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+# export PATH="$HOME/.rbenv/bin:$PATH"
+# eval "$(rbenv init -)"
 
 ### Aliases ###
-alias r=rails
 alias v=vim
+alias n=nvim
 alias ls='ls --color=auto'
 alias la='ls -a'
 alias l='ls -lh --time-style=long-iso'
