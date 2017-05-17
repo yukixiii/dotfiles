@@ -22,7 +22,7 @@ let g:tweetvim_buffer_name = '[buffer]'
 '''
 
 [[plugins]]
-repo = 'surround.vim'
+repo = 'vim-scripts/surround.vim'
 
 [[plugins]]
 repo = 'easymotion/vim-easymotion'
@@ -65,6 +65,9 @@ repo = 'itchyny/lightline.vim'
 
 [[plugins]]
 repo = 'mattn/emmet-vim'
+hook_add = '''
+	let g:user_emmet_leader_key = '<C-S>'
+'''
 
 [[plugins]]
 repo = 'Shougo/unite-outline'
@@ -103,6 +106,14 @@ hook_add = '''
 [[plugins]]
 repo = 'kassio/neoterm'
 
+[[plugins]]
+repo = 'vim-scripts/dbext.vim'
+hook_add = '''
+	let g:dbext_default_profile_eyefile = 'type=PGSQL:user=eyefile:dbname=eyefile20170228:host=192.168.0.251'
+	let g:dbext_default_profile_oldaqua = 'type=PGSQL:user=dgibex:dbname=aqua20170228:host=192.168.0.251'
+	let g:dbext_default_profile_aqua    = 'type=PGSQL:user=laravel:dbname=laravel:host=localhost:port=45002'
+'''
+
 # ==========================================================
 # color
 # ==========================================================
@@ -124,7 +135,7 @@ let g:solarized_underline = 0
 repo = 'w0ng/vim-hybrid'
 
 [[plugins]]
-repo = 'newspaper.vim'
+repo = 'vim-scripts/newspaper.vim'
 
 [[plugins]]
 repo = 'GGalizzi/cake-vim'
@@ -142,7 +153,7 @@ repo = 'hail2u/h2u_colorscheme'
 repo = 'noahfrederick/vim-hemisu'
 
 [[plugins]]
-repo = 'mayansmoke'
+repo = 'vim-scripts/mayansmoke'
 
 [[plugins]]
 repo = 'NLKNguyen/papercolor-theme'

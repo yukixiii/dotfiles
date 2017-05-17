@@ -56,7 +56,7 @@ hook_add = '''
 	nmap ,/ :<C-u>Denite line<CR>
 	nmap ,n/ :<C-u>Denite line -no-quit<CR>
 	nmap ,w :<C-u>Denite -resume<CR>
-	nmap <Leader>gr :<C-u>Denite grep -updatetime=500<CR>
+	nmap <Leader>gr :<C-u>Denite grep<CR>
 	nmap <Leader>o :<C-u>Denite outline<CR>
 '''
 
@@ -83,3 +83,7 @@ repo = 'thinca/vim-quickrun'
 hook_add = '''
 	nmap <Leader>q :<C-u>QuickRun<CR>
 '''
+
+[[plugins]]
+repo = 'joonty/vdebug'
+on_ft = 'php'
