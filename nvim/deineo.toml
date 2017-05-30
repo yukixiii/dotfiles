@@ -46,5 +46,5 @@ hook_add = '''
 	" nmap ,sh :<C-u>Deol<CR>
 '''
 hook_source = '''
-	set shell=zsh
+	" set shell=zsh
 '''

@@ -89,7 +89,7 @@ set laststatus=2
 
 " tabと行末スペースを表示
 set list
-set listchars=tab:^\ ,trail:~
+set listchars=tab:^\ ,trail:~,eol:↲,extends:»,precedes:«
 
 " 検索時にハイライト表示
 set hlsearch
@@ -100,7 +100,7 @@ set termguicolors
 
 " colorscheme
 colorscheme gruvbox
-set background=light
+set background=dark
 
 " 特殊記号の幅
 set ambiwidth=double
