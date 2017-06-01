@@ -114,6 +114,9 @@ hook_add = '''
 	let g:dbext_default_profile_aqua    = 'type=PGSQL:user=laravel:dbname=laravel:host=localhost:port=45002'
 '''
 
+# [[plugins]]
+# repo = 'equalsraf/neovim-gui-shim'
+
 # ==========================================================
 # color
 # ==========================================================

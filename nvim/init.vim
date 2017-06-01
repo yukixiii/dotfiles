@@ -89,7 +89,7 @@ set laststatus=2
 
 " tabと行末スペースを表示
 set list
-set listchars=tab:^\ ,trail:~,eol:↲,extends:»,precedes:«
+set listchars=tab:^\ ,trail:~
 
 " 検索時にハイライト表示
 set hlsearch
