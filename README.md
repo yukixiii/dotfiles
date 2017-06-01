@@ -74,8 +74,11 @@ ln -s ~/dotfiles/fish/config.fish
 
 ## golang
 - https://github.com/golang/go/wiki/Ubuntu
+- http://golang-jp.org/doc/install
 
-apt-getするだけ？忘れちゃった
+2個めの方参考に入れた
+apt-getのほうが楽かも
+
 
 PATH
 ```
