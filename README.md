@@ -2,6 +2,9 @@
 いろいろ増えてきたのでメモ
 基本的にUbuntuの環境構築用
 
+## PATHの設定
+困ったら.profileに書く。再起動。
+
 ## php
 https://www.colinodell.com/blog/2016-12/installing-php-7-1
 
@@ -23,11 +26,18 @@ php -r "unlink('composer-setup.php');"
 sudo mv composer.phar /usr/local/bin/composer
 ```
 
+PATHを通す
+```
+### composer ###
+export PATH=$PATH:$HOME/.config/composer/vendor/bin
+```
+
 ### padawan
-https://github.com/padawan-php/padawan.php
-https://github.com/padawan-php/deoplete-padawan
+- https://github.com/padawan-php/padawan.php
+- https://github.com/padawan-php/deoplete-padawan
 
 なんか普通にインストールしても何故か動かない問題↓
+
 https://github.com/padawan-php/padawan.php/issues/95
 ```
 {
@@ -51,3 +61,28 @@ cd ctags
 make
 sudo make install
 ```
+
+## fish shell
+```
+sudo apt-add-repository ppa:fish-shell/release-2
+sudo apt-get update
+sudo apt-get install fish
+mkdir -p ~/.config/fish
+cd ~/.config/fish
+ln -s ~/dotfiles/fish/config.fish
+```
+
+## golang
+- https://github.com/golang/go/wiki/Ubuntu
+
+apt-getするだけ？忘れちゃった
+
+PATH
+```
+### golang ###
+export GOPATH=$HOME/go
+export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
+```
+
+## docker
+ころころ変わるので公式見に行ったほうが早い
