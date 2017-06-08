@@ -3,11 +3,11 @@
 # ------------------------------
 # General Settings
 # ------------------------------
-export EDITOR=nvim       # エディタをnvimに設定
-export LANG=ja_JP.UTF-8  # 文字コードをUTF-8に設定
-export KCODE=u           # KCODEにUTF-8を設定
-export AUTOFEATURE=true  # autotestでfeatureを動かす
-export TERM=gnome-256color
+set -x EDITOR nvim       # エディタをnvimに設定
+set -x LANG ja_JP.UTF-8  # 文字コードをUTF-8に設定
+set -x KCODE u           # KCODEにUTF-8を設定
+set -x AUTOFEATURE true  # autotestでfeatureを動かす
+set -x TERM gnome-256color
 
 fish_vi_key_bindings
 
