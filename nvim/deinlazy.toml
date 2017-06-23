@@ -35,8 +35,8 @@ hook_source = 'source ~/.config/nvim/rc/unite.rc.vim'
 hook_add = '''
 	" nmap ,a :<C-u>Unite buffer_tab file file_mru<CR>
 	" nmap ,t :<C-u>Unite buffer_tab<CR>
-	nmap ,g :<C-u>UniteWithBufferDir file file/new directory/new<CR>
-	nmap ,j :<C-u>Unite file file/new directory/new<CR>
+	" nmap ,g :<C-u>UniteWithBufferDir file file/new directory/new<CR>
+	" nmap ,j :<C-u>Unite file file/new directory/new<CR>
 	nmap ,b :<C-u>Unite bookmark:default -input=[<CR>
 	nmap ,v :<C-u>Unite bookmark:default -input=[ -default-action=vimfiler<CR>
 	nmap ,e :<C-u>UniteResume<CR>
@@ -53,6 +53,8 @@ hook_add = '''
 	nmap ,m :<C-u>Denite file_mru<CR>
 	nmap ,r :<C-u>Denite file_rec<CR>
 	nmap ,p :<C-u>Denite file_rec/git<CR>
+	nmap ,g :<C-u>DeniteBufferDir file file:new<CR>
+	nmap ,j :<C-u>Denite file file:new<CR>
 	nmap ,/ :<C-u>Denite line<CR>
 	nmap ,n/ :<C-u>Denite line -no-quit<CR>
 	nmap ,w :<C-u>Denite -resume<CR>
