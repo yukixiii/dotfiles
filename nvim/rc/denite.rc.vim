@@ -1,6 +1,6 @@
 " Change file_rec command.
 call denite#custom#var('file_rec', 'command',
-			\ ['pt', '--follow', '--hidden', '--nocolor', '--nogroup', '-g', ''])
+			\ ['pt', '--follow', '--hidden', '--nocolor', '--nogroup', '-g=', ''])
 
 " Change mappings.
 call denite#custom#map(
@@ -21,6 +21,8 @@ call denite#custom#source(
 			\ 'file_mru', 'matchers', ['matcher_fuzzy', 'matcher_project_files'])
 call denite#custom#source(
 			\ 'file_rec', 'matchers', ['matcher_cpsm', 'matcher_ignore_globs'])
+call denite#custom#source(
+			\ 'grep', 'matchers', ['matcher_cpsm'])
 
 " Change sorters.
 call denite#custom#source(
@@ -28,12 +30,15 @@ call denite#custom#source(
 
 " jvgrep command on grep source
 " call denite#custom#var('grep', 'command', ['jvgrep'])
-" call denite#custom#var('grep', 'default_opts',
-" 			\ ['-i', '--exclude', '\.(git|svn|hg|bzr)'])
+" call denite#custom#var('grep', 'default_opts', [])
+" " call denite#custom#var('grep', 'default_opts',
+" " 			\ ['-i', '--exclude', '\.(git|svn|hg|bzr)'])
 " call denite#custom#var('grep', 'recursive_opts', ['-R'])
 " call denite#custom#var('grep', 'pattern_opt', [])
-" call denite#custom#var('grep', 'separator', [''])
+" call denite#custom#var('grep', 'separator', [])
 " call denite#custom#var('grep', 'final_opts', [])
+
+" Pt command on grep source
 call denite#custom#var('grep', 'command', ['pt'])
 call denite#custom#var('grep', 'default_opts',
 			\ ['--nogroup', '--nocolor', '--smart-case'])
