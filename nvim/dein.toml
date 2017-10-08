@@ -164,8 +164,14 @@ repo = 'NLKNguyen/papercolor-theme'
 [[plugins]]
 repo = 'mhinz/vim-janah'
 
-[[plugins]]
-repo = 'atelierbram/Base2Tone-vim'
+# [[plugins]]
+# repo = 'atelierbram/Base2Tone-vim'
 
 [[plugins]]
 repo = 'morhetz/gruvbox'
+
+[[plugins]]
+repo = 'reedes/vim-colors-pencil'
+
+[[plugins]]
+repo = 'google/vim-colorscheme-primary'
