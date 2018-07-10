@@ -2,6 +2,8 @@
 call denite#custom#var('file_rec', 'command',
 			\ ['pt', '--follow', '--hidden', '--nocolor', '--nogroup', '-g=', ''])
 
+call denite#custom#var('file_rec', 'command', ['scantree.py'])
+
 " Change mappings.
 call denite#custom#map(
 			\ 'insert',
@@ -20,13 +22,13 @@ call denite#custom#map(
 call denite#custom#source(
 			\ 'file_mru', 'matchers', ['matcher_fuzzy', 'matcher_project_files'])
 call denite#custom#source(
-			\ 'file_rec', 'matchers', ['matcher_cpsm', 'matcher_ignore_globs'])
+			\ 'file_rec', 'matchers', ['matcher_cpsm'])
 call denite#custom#source(
 			\ 'grep', 'matchers', ['matcher_cpsm'])
 
 " Change sorters.
 call denite#custom#source(
-			\ 'file_rec', 'sorters', ['sorter_rank'])
+			\ 'file_rec', 'sorters', ['sorter_sublime'])
 
 " jvgrep command on grep source
 " call denite#custom#var('grep', 'command', ['jvgrep'])

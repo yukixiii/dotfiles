@@ -99,8 +99,12 @@ set hlsearch
 set termguicolors
 
 " colorscheme
-colorscheme gruvbox
 set background=dark
+colorscheme gruvbox
+
+" 行ハイライト
+" set cursorline
+" set cursorcolumn
 
 " 特殊記号の幅
 set ambiwidth=double

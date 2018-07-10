@@ -8,8 +8,8 @@ set -x LANG ja_JP.UTF-8  # 文字コードをUTF-8に設定
 set -x KCODE u           # KCODEにUTF-8を設定
 set -x AUTOFEATURE true  # autotestでfeatureを動かす
 # set -x TERM screen-256color
-set -x TERM gnome-256color
-# set -x TERM xterm-256color
+# set -x TERM gnome-256color
+set -x TERM xterm-256color
 # set -x TERM tmux-256color
 
 fish_vi_key_bindings
@@ -32,6 +32,7 @@ end
 ### Aliases ###
 alias v=vim
 alias n=nvim
+alias x=xdg-open
 alias ls='ls --color=auto'
 alias la='ls -a'
 alias l='ls -lh --time-style=long-iso'
@@ -44,3 +45,8 @@ alias ll='ls -lha --time-style=long-iso'
 # function cd
 #     builtin cd $argv; and ls
 # end
+
+# neovimのterminal内でneovim側もcd
+function ncd
+    nvr -c "cd "(realpath $argv)
+end

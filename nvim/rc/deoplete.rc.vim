@@ -59,6 +59,10 @@ let g:deoplete#keyword_patterns.tex = '[^\w|\s][a-zA-Z_]\w*'
 
 let g:deoplete#omni#input_patterns = {}
 let g:deoplete#omni#input_patterns.python = ''
+
+
+let g:deoplete#ignore_sources = get(g:, 'deoplete#ignore_sources', {})
+let g:deoplete#ignore_sources.php = ['omni']
 " let g:deoplete#omni#input_patterns.php = '\h\w*\|[^. \t]->\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
 let g:deoplete#omni#input_patterns.php =
             \ '\w+|[^. \t]->\w*|\w+::\w*'

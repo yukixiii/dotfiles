@@ -1,8 +1,8 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
-# [[plugins]]
-# repo = 'tyru/open-browser.vim'
+[[plugins]]
+repo = 'tyru/open-browser.vim'
 
 [[plugins]]
 repo = 'tyru/caw.vim'
@@ -22,7 +22,10 @@ let g:tweetvim_buffer_name = '[buffer]'
 '''
 
 [[plugins]]
-repo = 'vim-scripts/surround.vim'
+repo = 'tpope/vim-surround'
+
+[[plugins]]
+repo = 'tpope/vim-fugitive'
 
 [[plugins]]
 repo = 'easymotion/vim-easymotion'
@@ -77,6 +80,9 @@ repo = 'tsukkee/unite-tag'
 
 [[plugins]]
 repo = 'will133/vim-dirdiff'
+hook_add = '''
+	let g:DirDiffForceLang = "C"
+'''
 
 [[plugins]]
 repo = 'fuenor/qfixhowm'
@@ -87,8 +93,8 @@ repo = 'fuenor/im_control.vim'
 [[plugins]]
 repo = 'vim-jp/vimdoc-ja'
 
-[[plugins]]
-repo = 'shawncplus/phpcomplete.vim'
+# [[plugins]]
+# repo = 'shawncplus/phpcomplete.vim'
 
 [[plugins]]
 repo = 'nixprime/cpsm'
@@ -105,6 +111,9 @@ hook_add = '''
 
 [[plugins]]
 repo = 'kassio/neoterm'
+hook_add = '''
+	let g:neoterm_default_mod = 'vertical'
+'''
 
 [[plugins]]
 repo = 'vim-scripts/dbext.vim'
@@ -113,6 +122,9 @@ hook_add = '''
 	let g:dbext_default_profile_oldaqua = 'type=PGSQL:user=dgibex:dbname=aqua20170228:host=192.168.0.251'
 	let g:dbext_default_profile_aqua    = 'type=PGSQL:user=laravel:dbname=laravel:host=localhost:port=45002'
 '''
+
+[[plugins]]
+repo = 'jwalton512/vim-blade'
 
 # [[plugins]]
 # repo = 'equalsraf/neovim-gui-shim'
@@ -174,4 +186,16 @@ repo = 'morhetz/gruvbox'
 repo = 'reedes/vim-colors-pencil'
 
 [[plugins]]
-repo = 'google/vim-colorscheme-primary'
+repo = 'nightsense/office'
+
+[[plugins]]
+repo = 'nightsense/seagrey'
+
+[[plugins]]
+repo = 'archseer/colibri.vim'
+
+[[plugins]]
+repo = 'tssm/fairyfloss.vim'
+
+[[plugins]]
+repo = 'rakr/vim-one'

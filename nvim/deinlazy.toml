@@ -74,11 +74,16 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = 'Shougo/vimshell.vim'
+on_source = ['vimfiler.vim']
+# on_map = {n = '<Plug>'}
+
+[[plugins]]
 repo = 'Shougo/neoinclude.vim'
 on_if = 1
 
-[[plugins]]
-repo = 'tyru/open-browser.vim'
+# [[plugins]]
+# repo = 'tyru/open-browser.vim'
 
 [[plugins]]
 repo = 'thinca/vim-quickrun'
@@ -87,7 +92,7 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'joonty/vdebug'
+repo = 'vim-vdebug/vdebug'
 on_ft = 'php'
 hook_source = '''
 	let g:vdebug_options = {
@@ -112,9 +117,30 @@ hook_source = '''
 '''
 
 [[plugins]]
-repo = 'pangloss/vim-javascript'
-on_ft = ['javascript', 'javascript.jsx']
+repo = 'othree/yajs.vim'
+on_ft = ['javascript.jsx']
 
 [[plugins]]
 repo = 'maxmellon/vim-jsx-pretty'
-on_ft = ['javascript', 'javascript.jsx']
+on_ft = ['javascript.jsx']
+
+[[plugins]]
+repo = 'glidenote/memolist.vim'
+on_cmd = ['MemoNew', 'MemoList', 'MemoGrep']
+hook_source = 'source ~/.config/nvim/rc/memolist.rc.vim'
+hook_add = '''
+	nnoremap <Leader>mn  :<C-u>MemoNew<CR>
+	nnoremap <Leader>ml  :<C-u>MemoList<CR>
+	nnoremap <Leader>mg  :<C-u>MemoGrep<CR>
+'''
+
+[[plugins]]
+repo = 'kannokanno/previm'
+on_cmd = ['PrevimOpen']
+hook_add = '''
+	nmap <Leader>p :<C-u>PrevimOpen<CR>
+'''
+
+[[plugins]]
+repo = 'cespare/vim-toml'
+on_ft = 'topl'
