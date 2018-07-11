@@ -55,6 +55,7 @@ hook_add = '''
 	nmap ,p :<C-u>Denite file_rec/git<CR>
 	nmap ,g :<C-u>DeniteBufferDir file file:new<CR>
 	nmap ,j :<C-u>Denite file file:new<CR>
+	nmap ,h :<C-u>Denite file::`expand('~/')` file:new:`expand('~/')`<CR>
 	nmap ,/ :<C-u>Denite line<CR>
 	nmap ,n/ :<C-u>Denite line -no-quit<CR>
 	nmap ,w :<C-u>Denite -resume<CR>
