@@ -32,6 +32,9 @@ end
 ### Aliases ###
 alias v=vim
 alias n=nvim
+alias t=tmux
+alias nv=nvr
+alias r=ranger
 alias x=xdg-open
 alias ls='ls --color=auto'
 alias la='ls -a'
