@@ -1,8 +1,8 @@
 " Change file_rec command.
 call denite#custom#var('file_rec', 'command',
-			\ ['pt', '--follow', '--hidden', '--nocolor', '--nogroup', '-g=', ''])
+			\ ['pt', '--follow', '--nocolor', '--nogroup', '-g=', ''])
 
-call denite#custom#var('file_rec', 'command', ['scantree.py'])
+" call denite#custom#var('file_rec', 'command', ['scantree.py'])
 
 " Change mappings.
 call denite#custom#map(
@@ -17,6 +17,36 @@ call denite#custom#map(
 			\ '<denite:move_to_previous_line>',
 			\ 'noremap'
 			\)
+call denite#custom#map(
+			\ 'insert',
+			\ '<C-d>',
+			\ '<denite:do_action:cd>',
+			\ 'noremap'
+			\)
+call denite#custom#map(
+			\ 'normal',
+			\ 'cd',
+			\ '<denite:do_action:cd>',
+			\ 'noremap'
+			\)
+call denite#custom#map(
+			\ 'insert',
+			\ '..',
+			\ '<denite:move_up_path>',
+			\ 'noremap'
+			\)
+call denite#custom#map(
+			\ 'insert',
+			\ '<Esc>',
+			\ '<denite:enter_mode:normal>',
+			\ 'noremap'
+			\)
+call denite#custom#map(
+			\ 'normal',
+			\ '<Esc>',
+			\ '<denite:quit>',
+			\ 'noremap'
+			\)
 
 " Change matchers.
 call denite#custom#source(
@@ -29,6 +59,8 @@ call denite#custom#source(
 " Change sorters.
 call denite#custom#source(
 			\ 'file_rec', 'sorters', ['sorter_sublime'])
+call denite#custom#source(
+			\ 'file', 'sorters', ['sorter_word'])
 
 " jvgrep command on grep source
 " call denite#custom#var('grep', 'command', ['jvgrep'])

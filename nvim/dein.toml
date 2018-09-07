@@ -115,19 +115,34 @@ hook_add = '''
 	let g:neoterm_default_mod = 'vertical'
 '''
 
+# [[plugins]]
+# repo = 'vim-scripts/dbext.vim'
+# hook_add = '''
+# 	let g:dbext_default_profile_eyefile = 'type=PGSQL:user=eyefile:dbname=eyefile:host=localhost:port=45000'
+# 	let g:dbext_default_profile_oldaqua = 'type=PGSQL:user=dgibex:dbname=aqua20170228:host=192.168.0.251'
+# 	let g:dbext_default_profile_aqua    = 'type=PGSQL:user=laravel:dbname=laravel:host=localhost:port=45002'
+# 	let g:dbext_default_profile_shop    = 'type=PGSQL:user=sunity:dbname=cv_shop_search:host=localhost:port=45001'
+# '''
+
 [[plugins]]
-repo = 'vim-scripts/dbext.vim'
-hook_add = '''
-	let g:dbext_default_profile_eyefile = 'type=PGSQL:user=eyefile:dbname=eyefile20170228:host=192.168.0.251'
-	let g:dbext_default_profile_oldaqua = 'type=PGSQL:user=dgibex:dbname=aqua20170228:host=192.168.0.251'
-	let g:dbext_default_profile_aqua    = 'type=PGSQL:user=laravel:dbname=laravel:host=localhost:port=45002'
-'''
+repo = 'tpope/vim-dadbod'
 
 [[plugins]]
 repo = 'jwalton512/vim-blade'
 
 # [[plugins]]
 # repo = 'equalsraf/neovim-gui-shim'
+
+[[plugins]]
+repo = 'miyakogi/seiya.vim'
+hook_add = '''
+	if !exists('g:gui_oni')
+		let g:seiya_auto_enable=1
+	endif
+
+	" Default value: ['ctermbg']
+	let g:seiya_target_groups = has('nvim') ? ['guibg'] : ['ctermbg']
+'''
 
 # ==========================================================
 # color

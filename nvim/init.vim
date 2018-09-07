@@ -63,6 +63,10 @@ set expandtab " タブをスペースに展開する
 set splitbelow
 set splitright
 
+" terminal
+" terminalをinsertで始める
+autocmd TermOpen * startinsert
+
 " 「日本語入力固定モード」切替キー
 " dein.tmlに書こうとしたけどうまく行かなかった
 let IM_CtrlMode = 6
@@ -99,12 +103,15 @@ set hlsearch
 set termguicolors
 
 " colorscheme
-set background=dark
+set background=light
 colorscheme gruvbox
 
 " 行ハイライト
-" set cursorline
+set cursorline
 " set cursorcolumn
+
+" 相対行番号
+set relativenumber
 
 " 特殊記号の幅
 set ambiwidth=double
@@ -187,7 +194,26 @@ nnoremap <Leader>ff :<C-u>set fileformat=
 nnoremap <Leader>ft :<C-u>set filetype=
 
 " terminal emulator
-nmap ,sh :<C-u>terminal<CR>
+nnoremap ,st :<C-u>tabnew +terminal<CR>
+nnoremap ,sh :<C-u>terminal<CR>
+nnoremap ,sp :<C-u>split +terminal<CR>
+nnoremap ,sv :<C-u>vsplit +terminal<CR>
+
+" tab
+nnoremap <Leader>t :<C-u>tabnew<CR>
+nnoremap <Leader>w :<C-u>tabclose<CR>
+nnoremap <C-S-PageDown> :<C-u>tabmove +<CR>
+nnoremap <C-S-PageUp> :<C-u>tabmove -<CR>
+nnoremap <A-1> :<C-u>tabnext 1<CR>
+nnoremap <A-2> :<C-u>tabnext 2<CR>
+nnoremap <A-3> :<C-u>tabnext 3<CR>
+nnoremap <A-4> :<C-u>tabnext 4<CR>
+nnoremap <A-5> :<C-u>tabnext 5<CR>
+nnoremap <A-6> :<C-u>tabnext 6<CR>
+nnoremap <A-7> :<C-u>tabnext 7<CR>
+nnoremap <A-8> :<C-u>tabnext 8<CR>
+nnoremap <A-9> :<C-u>tabnext 9<CR>
+nnoremap <A-0> :<C-u>tabnext $<CR>
 
 " Plugin
 " nmap ,a :<C-u>Unite buffer_tab file file_mru<CR>
