@@ -32,10 +32,16 @@ end
 ### Aliases ###
 alias v=vim
 alias n=nvim
-alias t=tmux
+abbr --add t='tmux'
+alias ta='tmux attach'
+alias tl='tmux ls'
+abbr --add d='docker'
+abbr --add c='docker-compose'
+abbr --add cu='docker-compose up -d'
+abbr --add cn='docker-compose down'
 alias nv=nvr
 alias r=ranger
-alias x=xdg-open
+abbr --add x=xdg-open
 alias ls='ls --color=auto'
 alias la='ls -a'
 alias l='ls -lh --time-style=long-iso'
