@@ -53,7 +53,8 @@ call deoplete#custom#set('clang', 'input_pattern', '\.\w*|\.->\w*|\w+::\w*')
 call deoplete#custom#set('clang', 'max_pattern_length', -1)
 
 let g:deoplete#keyword_patterns = {}
-let g:deoplete#keyword_patterns._ = '[a-zA-Z_]\k*\(?'
+let g:deoplete#keyword_patterns._ = '[a-zA-Z_]\k*'
+" let g:deoplete#keyword_patterns._ = '[a-zA-Z_]\k*\(?'
 " let g:deoplete#keyword_patterns.tex = '\\?[a-zA-Z_]\w*'
 let g:deoplete#keyword_patterns.tex = '[^\w|\s][a-zA-Z_]\w*'
 
@@ -64,9 +65,9 @@ let g:deoplete#omni#input_patterns.python = ''
 let g:deoplete#ignore_sources = get(g:, 'deoplete#ignore_sources', {})
 let g:deoplete#ignore_sources.php = ['omni']
 " let g:deoplete#omni#input_patterns.php = '\h\w*\|[^. \t]->\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
-let g:deoplete#omni#input_patterns.php =
-            \ '\w+|[^. \t]->\w*|\w+::\w*'
-let g:deoplete#omni#functions = {}
+" let g:deoplete#omni#input_patterns.php =
+"            \ '\w+|[^. \t]->\w*|\w+::\w*'
+" let g:deoplete#omni#functions = {}
 
 " inoremap <silent><expr> <C-t> deoplete#manual_complete('file')
 

@@ -88,7 +88,7 @@ set autoindent
 set smartindent
 
 " コマンドラインの大きさ
-set cmdheight=2
+set cmdheight=1
 set laststatus=2
 
 " tabと行末スペースを表示
@@ -105,6 +105,11 @@ set termguicolors
 " colorscheme
 set background=light
 colorscheme gruvbox
+
+" if !exists('g:gui_oni')
+" 	let g:seiya_auto_enable=1
+" endif
+
 
 " 行ハイライト
 set cursorline
@@ -181,9 +186,9 @@ nnoremap k gk
 nnoremap l <Right>zv
 
 " 文字コードを指定して開き直し
-nnoremap <Leader>u :<C-u>e ++enc=utf-8<CR>
-nnoremap <Leader>c :<C-u>e ++enc=cp932<CR>
-nnoremap <Leader>e :<C-u>e ++enc=euc-jp<CR>
+nnoremap <silent> <Leader>u :<C-u>e ++enc=utf-8<CR>
+nnoremap <silent> <Leader>c :<C-u>e ++enc=cp932<CR>
+nnoremap <silent> <Leader>e :<C-u>e ++enc=euc-jp<CR>
 nnoremap <Leader>r :<C-u>e ++ff=
 
 " 改行コード、文字コードの設定
@@ -194,26 +199,30 @@ nnoremap <Leader>ff :<C-u>set fileformat=
 nnoremap <Leader>ft :<C-u>set filetype=
 
 " terminal emulator
-nnoremap ,st :<C-u>tabnew +terminal<CR>
-nnoremap ,sh :<C-u>terminal<CR>
-nnoremap ,sp :<C-u>split +terminal<CR>
-nnoremap ,sv :<C-u>vsplit +terminal<CR>
+nnoremap <silent> ,st :<C-u>tabnew +terminal<CR>
+nnoremap <silent> ,sh :<C-u>terminal<CR>
+nnoremap <silent> ,sp :<C-u>split +terminal<CR>
+nnoremap <silent> ,sv :<C-u>vsplit +terminal<CR>
 
 " tab
-nnoremap <Leader>t :<C-u>tabnew<CR>
-nnoremap <Leader>w :<C-u>tabclose<CR>
-nnoremap <C-S-PageDown> :<C-u>tabmove +<CR>
-nnoremap <C-S-PageUp> :<C-u>tabmove -<CR>
-nnoremap <A-1> :<C-u>tabnext 1<CR>
-nnoremap <A-2> :<C-u>tabnext 2<CR>
-nnoremap <A-3> :<C-u>tabnext 3<CR>
-nnoremap <A-4> :<C-u>tabnext 4<CR>
-nnoremap <A-5> :<C-u>tabnext 5<CR>
-nnoremap <A-6> :<C-u>tabnext 6<CR>
-nnoremap <A-7> :<C-u>tabnext 7<CR>
-nnoremap <A-8> :<C-u>tabnext 8<CR>
-nnoremap <A-9> :<C-u>tabnext 9<CR>
-nnoremap <A-0> :<C-u>tabnext $<CR>
+nnoremap <silent> <Leader>t :<C-u>tabnew<CR>
+nnoremap <silent> <Leader>w :<C-u>tabclose<CR>
+nnoremap <silent> <C-S-PageDown> :<C-u>tabmove +<CR>
+nnoremap <silent> <C-S-PageUp> :<C-u>tabmove -<CR>
+nnoremap <silent> <A-1> :<C-u>tabnext 1<CR>
+nnoremap <silent> <A-2> :<C-u>tabnext 2<CR>
+nnoremap <silent> <A-3> :<C-u>tabnext 3<CR>
+nnoremap <silent> <A-4> :<C-u>tabnext 4<CR>
+nnoremap <silent> <A-5> :<C-u>tabnext 5<CR>
+nnoremap <silent> <A-6> :<C-u>tabnext 6<CR>
+nnoremap <silent> <A-7> :<C-u>tabnext 7<CR>
+nnoremap <silent> <A-8> :<C-u>tabnext 8<CR>
+nnoremap <silent> <A-9> :<C-u>tabnext 9<CR>
+nnoremap <silent> <A-0> :<C-u>tabnext $<CR>
+
+" diff
+nnoremap <Leader>dt :<C-u>diffthis<CR>
+nnoremap <Leader>do :<C-u>diffoff!<CR>
 
 " Plugin
 " nmap ,a :<C-u>Unite buffer_tab file file_mru<CR>

@@ -3,7 +3,7 @@ if &compatible
 	set nocompatible
 endif
 
-let s:dein_dir = expand('~/.cache/nvim/dein')
+let s:dein_dir = expand('~/.cache/dein')
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 
 " set runtimepath+=/home/yuki/.cache/dein/repos/github.com/Shougo/dein.vim
@@ -14,10 +14,10 @@ if dein#load_state(s:dein_dir)
 
 	call dein#load_toml('~/.config/nvim/dein.toml', {'lazy' : 0})
 	call dein#load_toml('~/.config/nvim/deinlazy.toml', {'lazy' : 1})
-	if has('nvim')
-		call dein#load_toml('~/.config/nvim/deineo.toml', {})
-	endif
-	" call dein#load_toml('~/.vim/rc/deinft.toml')
+	" if has('nvim')
+	" 	call dein#load_toml('~/.config/nvim/deineo.toml', {})
+	" endif
+	call dein#load_toml('~/.config/nvim/deinft.toml')
 
 	if dein#tap('deoplete.nvim') && has('nvim')
 		call dein#disable('neocomplete.vim')

@@ -47,12 +47,26 @@ call denite#custom#map(
 			\ '<denite:quit>',
 			\ 'noremap'
 			\)
+call denite#custom#map(
+			\ 'normal',
+			\ 's',
+			\ '<denite:do_action:split>',
+			\ 'noremap'
+			\)
+call denite#custom#map(
+			\ 'normal',
+			\ 'v',
+			\ '<denite:do_action:vsplit>',
+			\ 'noremap'
+			\)
 
 " Change matchers.
 call denite#custom#source(
 			\ 'file_mru', 'matchers', ['matcher_fuzzy', 'matcher_project_files'])
 call denite#custom#source(
 			\ 'file_rec', 'matchers', ['matcher_cpsm'])
+call denite#custom#source(
+			\ 'file', 'matchers', ['matcher_cpsm'])
 call denite#custom#source(
 			\ 'grep', 'matchers', ['matcher_cpsm'])
 

@@ -54,11 +54,9 @@ hook_add = '''
 [[plugins]]
 repo = 'junegunn/vim-easy-align'
 hook_add = '''
-vmap <Enter> <Plug>(EasyAlign)
+	vmap <Enter> <Plug>(EasyAlign)
 '''
 
-[[plugins]]
-repo = 'Shougo/neosnippet-snippets'
 
 [[plugins]]
 repo = 'haya14busa/incsearch.vim'
@@ -98,6 +96,7 @@ repo = 'vim-jp/vimdoc-ja'
 
 [[plugins]]
 repo = 'nixprime/cpsm'
+build = 'sh -c "PY3=ON ./install.sh"'
 
 [[plugins]]
 repo = 'kana/vim-tabpagecd'
@@ -115,6 +114,10 @@ hook_add = '''
 	let g:neoterm_default_mod = 'vertical'
 '''
 
+
+# ==========================================================
+# database
+# ==========================================================
 # [[plugins]]
 # repo = 'vim-scripts/dbext.vim'
 # hook_add = '''
@@ -127,8 +130,27 @@ hook_add = '''
 [[plugins]]
 repo = 'tpope/vim-dadbod'
 
+
+# ==========================================================
+# file
+# ==========================================================
 [[plugins]]
 repo = 'jwalton512/vim-blade'
+
+[[plugins]]
+repo = 'Vimjas/vim-python-pep8-indent'
+
+[[plugins]]
+repo = 'cespare/vim-toml'
+
+[[plugins]]
+repo = 'othree/yajs.vim'
+
+[[plugins]]
+repo = 'maxmellon/vim-jsx-pretty'
+
+[[plugcolorins]]
+repo = 'mechatroner/rainbow_csv'
 
 # [[plugins]]
 # repo = 'equalsraf/neovim-gui-shim'
@@ -136,13 +158,10 @@ repo = 'jwalton512/vim-blade'
 [[plugins]]
 repo = 'miyakogi/seiya.vim'
 hook_add = '''
-	if !exists('g:gui_oni')
-		let g:seiya_auto_enable=1
-	endif
-
 	" Default value: ['ctermbg']
 	let g:seiya_target_groups = has('nvim') ? ['guibg'] : ['ctermbg']
 '''
+
 
 # ==========================================================
 # color
