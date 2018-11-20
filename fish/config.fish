@@ -11,6 +11,8 @@ set -x AUTOFEATURE true  # autotestでfeatureを動かす
 # set -x TERM gnome-256color
 set -x TERM xterm-256color
 # set -x TERM tmux-256color
+set -x UID (id -u)
+set -x GID (id -g)
 
 fish_vi_key_bindings
 
@@ -33,8 +35,9 @@ end
 alias v=vim
 alias n=nvim
 abbr --add t='tmux'
-alias ta='tmux attach'
-alias tl='tmux ls'
+abbr --add ta='tmux attach'
+abbr --add tl='tmux ls'
+abbr --add ts='tmux attach -t'
 abbr --add d='docker'
 abbr --add c='docker-compose'
 abbr --add cu='docker-compose up -d'
