@@ -221,9 +221,9 @@ on_source = ['vimfiler.vim']
 # ==========================================================
 # completion
 # ==========================================================
-[[plugins]]
-repo = 'zchee/deoplete-jedi'
-on_ft = 'python'
+# [[plugins]]
+# repo = 'zchee/deoplete-jedi'
+# on_ft = 'python'
 
 [[plugins]]
 repo = 'zchee/deoplete-go'
@@ -237,10 +237,42 @@ hook_source = '''
 	let b:clang2_orig_maps = {}
 '''
 
+# [[plugins]]
+# repo = 'lvht/phpcd.vim'
+# build = 'composer install'
+# on_ft = 'php'
+
 [[plugins]]
-repo = 'lvht/phpcd.vim'
-build = 'composer install'
-on_ft = 'php'
+repo = 'autozimu/LanguageClient-neovim'
+rev = 'next'
+on_event = 'InsertEnter'
+build = 'bash install.sh'
+hook_add = '''
+	" Required for operations modifying multiple buffers like rename.
+	set hidden
+
+	let g:LanguageClient_serverCommands = {
+		\ 'php': ['php', '~/.config/composer/vendor/bin/php-language-server.php'],
+	 	\ 'python': ['pyls'],
+		\ }
+	" let g:LanguageClient_serverCommands = {
+	" 	'php': ['php', '~/.config/composer/vendor/bin/php-language-server.php'],
+	" 	" \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+	" 	" \ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
+	" 	" \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
+	" 	" \ 'python': ['/usr/local/bin/pyls'],
+	" 	\ }
+
+	function LC_maps()
+		if has_key(g:LanguageClient_serverCommands, &filetype)
+			nnoremap <F3> :<C-u>call LanguageClient_contextMenu()<CR>
+			nnoremap <silent> K :<C-u>call LanguageClient#textDocument_hover()<CR>
+			nnoremap <silent> gd :<C-u>call LanguageClient#textDocument_definition()<CR>
+			nnoremap <silent> <F2> :<C-u>call LanguageClient#textDocument_rename()<CR>
+		endif
+	endfunction
+    autocmd FileType * call LC_maps()
+'''
 
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
