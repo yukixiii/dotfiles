@@ -126,19 +126,59 @@ hook_add = '''
 
 
 # ==========================================================
+# language server protocol
+# ==========================================================
+[[plugins]]
+repo = 'autozimu/LanguageClient-neovim'
+rev = 'next'
+build = 'bash install.sh'
+hook_add = '''
+	" Required for operations modifying multiple buffers like rename.
+	set hidden
+
+	let g:LanguageClient_serverCommands = {
+	\ 'php': ['/usr/bin/php', '~/.config/composer/vendor/bin/php-language-server.php'],
+ 	\ 'python': ['/usr/bin/pyls'],
+	\ }
+	" let g:LanguageClient_serverCommands = {
+	" 	'php': ['php', '~/.config/composer/vendor/bin/php-language-server.php'],
+	" 	" \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+	" 	" \ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
+	" 	" \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
+	" 	" \ 'python': ['/usr/local/bin/pyls'],
+	" 	\ }
+
+	function LC_maps()
+		if has_key(g:LanguageClient_serverCommands, &filetype)
+			" nnoremap <F3> :<C-u>call LanguageClient_contextMenu()<CR>
+			" nnoremap <silent> K :<C-u>call LanguageClient#textDocument_hover()<CR>
+			nnoremap <silent> gd :<C-u>call LanguageClient#textDocument_definition()<CR>
+			" nnoremap <silent> <F2> :<C-u>call LanguageClient#textDocument_rename()<CR>
+		endif
+	endfunction
+    autocmd FileType * call LC_maps()
+'''
+
+# [[plugins]]
+# repo = 'tbodt/deoplete-tabnine'
+# build = './install.sh'
+
+# ==========================================================
 # database
 # ==========================================================
-# [[plugins]]
-# repo = 'vim-scripts/dbext.vim'
-# hook_add = '''
-# 	let g:dbext_default_profile_eyefile = 'type=PGSQL:user=eyefile:dbname=eyefile:host=localhost:port=45000'
-# 	let g:dbext_default_profile_oldaqua = 'type=PGSQL:user=dgibex:dbname=aqua20170228:host=192.168.0.251'
-# 	let g:dbext_default_profile_aqua    = 'type=PGSQL:user=laravel:dbname=laravel:host=localhost:port=45002'
-# 	let g:dbext_default_profile_shop    = 'type=PGSQL:user=sunity:dbname=cv_shop_search:host=localhost:port=45001'
-# '''
-
 [[plugins]]
-repo = 'tpope/vim-dadbod'
+repo = 'vim-scripts/dbext.vim'
+hook_add = '''
+	" let g:dbext_default_PGSQL_bin       = 'env LC_MESSAGES=C psql'
+	let g:dbext_default_profile_eyefile = 'type=PGSQL:user=eyefile:dbname=eyefile:host=localhost:port=45000'
+	" let g:dbext_default_profile_eyefile_master = 'type=PGSQL:user=eyefile:dbname=eyefile:host=localhost:port=50000'
+	" let g:dbext_default_profile_oldaqua = 'type=PGSQL:user=dgibex:dbname=aqua20170228:host=192.168.0.251'
+	let g:dbext_default_profile_aqua    = 'type=PGSQL:user=laravel:dbname=laravel:host=localhost:port=45002'
+	let g:dbext_default_profile_shop    = 'type=PGSQL:user=sunity:dbname=cv_shop_search:host=localhost:port=45001'
+'''
+
+# [[plugins]]
+# repo = 'tpope/vim-dadbod'
 
 
 # ==========================================================
@@ -165,6 +205,9 @@ repo = 'mechatroner/rainbow_csv'
 [[plugins]]
 repo = 'osyo-manga/vim-precious'
 depends = 'context_filetype.vim'
+
+[[plugins]]
+repo = 'blueyed/smarty.vim'
 
 
 # ==========================================================

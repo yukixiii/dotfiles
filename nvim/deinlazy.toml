@@ -117,7 +117,79 @@ on_source = ['unite.vim', 'vimshell.vim', 'vimfiler.vim']
 
 [[plugins]]
 repo = 'Shougo/context_filetype.vim'
+hook_source = '''
+let g:context_filetype#filetypes = {
+	\ 'smarty': [
+	\   {
+	\    'start':
+	\     '<script\%( [^>]*\)\? type="text/javascript"\%( [^>]*\)\?>',
+	\    'end': '</script>', 'filetype': 'javascript',
+	\   },
+	\   {
+	\    'start':
+	\     '<script\%( [^>]*\)\? type="text/coffeescript"\%( [^>]*\)\?>',
+	\    'end': '</script>', 'filetype': 'coffee',
+	\   },
+	\   {
+	\    'start':
+	\     '<script\%( [^>]*\)\?>',
+	\    'end': '</script>', 'filetype': 'javascript',
+	\   },
+	\   {
+	\    'start':
+	\     '<style\%( [^>]*\)\?>',
+	\    'end': '</style>', 'filetype': 'css',
+	\   },
+	\   {
+	\    'start':
+	\     '<[^>]\+ style=\([''"]\)',
+	\    'end': '\1', 'filetype': 'css',
+	\   },
+	\ ],
+	\ 'blade': [
+	\   {
+	\    'start':
+	\     '<script\%( [^>]*\)\? type="text/javascript"\%( [^>]*\)\?>',
+	\    'end': '</script>', 'filetype': 'javascript',
+	\   },
+	\   {
+	\    'start':
+	\     '<script\%( [^>]*\)\? type="text/coffeescript"\%( [^>]*\)\?>',
+	\    'end': '</script>', 'filetype': 'coffee',
+	\   },
+	\   {
+	\    'start':
+	\     '<script\%( [^>]*\)\?>',
+	\    'end': '</script>', 'filetype': 'javascript',
+	\   },
+	\   {
+	\    'start':
+	\     '<style\%( [^>]*\)\?>',
+	\    'end': '</style>', 'filetype': 'css',
+	\   },
+	\   {
+	\    'start':
+	\     '<[^>]\+ style=\([''"]\)',
+	\    'end': '\1', 'filetype': 'css',
+	\   },
+	\ ],
+\}
+" let g:context_filetype#same_filetypes = {
+"	\ 'blade': 'html',
+"	\ 'smarty': 'html',
+"\}
 
+
+'''
+
+[[plugins]]
+repo = 'raghur/fruzzy'
+on_source = ['denite.nvim']
+hook_source = '''
+let g:fruzzy#usenative = 1
+let g:fruzzy#sortonempty = 0
+'''
+hook_post_update = 'call fruzzy#install()'
 
 
 # ==========================================================
@@ -241,38 +313,6 @@ hook_source = '''
 # repo = 'lvht/phpcd.vim'
 # build = 'composer install'
 # on_ft = 'php'
-
-[[plugins]]
-repo = 'autozimu/LanguageClient-neovim'
-rev = 'next'
-on_event = 'InsertEnter'
-build = 'bash install.sh'
-hook_add = '''
-	" Required for operations modifying multiple buffers like rename.
-	set hidden
-
-	let g:LanguageClient_serverCommands = {
-		\ 'php': ['php', '~/.config/composer/vendor/bin/php-language-server.php'],
-	 	\ 'python': ['pyls'],
-		\ }
-	" let g:LanguageClient_serverCommands = {
-	" 	'php': ['php', '~/.config/composer/vendor/bin/php-language-server.php'],
-	" 	" \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
-	" 	" \ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
-	" 	" \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
-	" 	" \ 'python': ['/usr/local/bin/pyls'],
-	" 	\ }
-
-	function LC_maps()
-		if has_key(g:LanguageClient_serverCommands, &filetype)
-			nnoremap <F3> :<C-u>call LanguageClient_contextMenu()<CR>
-			nnoremap <silent> K :<C-u>call LanguageClient#textDocument_hover()<CR>
-			nnoremap <silent> gd :<C-u>call LanguageClient#textDocument_definition()<CR>
-			nnoremap <silent> <F2> :<C-u>call LanguageClient#textDocument_rename()<CR>
-		endif
-	endfunction
-    autocmd FileType * call LC_maps()
-'''
 
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'

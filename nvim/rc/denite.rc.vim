@@ -61,14 +61,15 @@ call denite#custom#map(
 			\)
 
 " Change matchers.
+call denite#custom#source('_', 'matchers', ['matcher/fruzzy'])
 call denite#custom#source(
-			\ 'file_mru', 'matchers', ['matcher_fuzzy', 'matcher_project_files'])
+			\ 'file_mru', 'matchers', ['matcher/fruzzy', 'matcher/project_files'])
 call denite#custom#source(
-			\ 'file_rec', 'matchers', ['matcher_cpsm'])
+			\ 'file_rec', 'matchers', ['matcher/fruzzy'])
 call denite#custom#source(
-			\ 'file', 'matchers', ['matcher_cpsm'])
+			\ 'file', 'matchers', ['matcher/substring'])
 call denite#custom#source(
-			\ 'grep', 'matchers', ['matcher_cpsm'])
+			\ 'grep', 'matchers', ['matcher/fruzzy'])
 
 " Change sorters.
 call denite#custom#source(

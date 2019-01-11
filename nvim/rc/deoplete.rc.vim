@@ -69,6 +69,11 @@ call deoplete#custom#option('async_timeout', 100)
 " call deoplete#custom#source('clang', 'debug_enabled', 1)
 
 
+let g:deoplete#ignore_sources = get(g:, 'deoplete#ignore_sources', {})
+let g:deoplete#ignore_sources.php = ['omni']
+
+
+" old config
 " " <CR>: close popup and save indent.
 " " inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 " " function! s:my_cr_function() abort
