@@ -32,19 +32,22 @@ end
 # eval "$(rbenv init -)"
 
 ### Aliases ###
-alias v=vim
-alias n=nvim
-abbr --add t='tmux'
-abbr --add ta='tmux attach'
-abbr --add tl='tmux ls'
-abbr --add ts='tmux attach -t'
-abbr --add d='docker'
-abbr --add c='docker-compose'
-abbr --add cu='docker-compose up -d'
-abbr --add cn='docker-compose down'
-alias nv=nvr
-alias r=ranger
-abbr --add x=xdg-open
+if status --is-interactive
+    abbr --add --global v vim
+    abbr --add --global n nvim
+    abbr --add --global r ranger
+    abbr --add --global nv nvr
+    abbr --add --global t tmux
+    abbr --add --global ta tmux attach
+    abbr --add --global tl tmux ls
+    abbr --add --global tt tmux attach -t
+    abbr --add --global d docker
+    abbr --add --global c docker-compose
+    abbr --add --global cu docker-compose up -d
+    abbr --add --global cn docker-compose down
+    abbr --add --global x xdg-open
+end
+
 alias ls='ls --color=auto'
 alias la='ls -a'
 alias l='ls -lh --time-style=long-iso'
