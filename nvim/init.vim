@@ -124,6 +124,9 @@ set ambiwidth=double
 " 折り返し時のインデント
 set breakindent
 
+" diff表示
+set diffopt+=iblank,iwhite
+
 " 折りたたみテキスト変更
 " if neobundle#is_installed('foldCC.vim')
 " 	set foldtext=FoldCCtext()
