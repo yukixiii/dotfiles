@@ -19,6 +19,9 @@ if dein#load_state(s:dein_dir)
 	" endif
 	call dein#load_toml('~/.config/nvim/deinft.toml')
 
+	" Load plugin from "~/.config/nvim/bundle".
+	" call dein#local("~/.config/nvim/bundle")
+
 	if dein#tap('deoplete.nvim') && has('nvim')
 		call dein#disable('neocomplete.vim')
 	endif

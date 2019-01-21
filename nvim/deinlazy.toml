@@ -178,8 +178,6 @@ let g:context_filetype#filetypes = {
 "	\ 'blade': 'html',
 "	\ 'smarty': 'html',
 "\}
-
-
 '''
 
 [[plugins]]
@@ -190,6 +188,9 @@ let g:fruzzy#usenative = 1
 let g:fruzzy#sortonempty = 0
 '''
 hook_post_update = 'call fruzzy#install()'
+
+# [[plugins]]
+# repo = 'tpope/vim-dispatch'
 
 
 # ==========================================================
@@ -302,12 +303,12 @@ repo = 'zchee/deoplete-go'
 on_event = 'InsertEnter'
 on_ft = 'go'
 
-[[plugins]]
-repo = 'tweekmonster/deoplete-clang2'
-on_ft = ['c', 'cpp']
-hook_source = '''
-	let b:clang2_orig_maps = {}
-'''
+# [[plugins]]
+# repo = 'tweekmonster/deoplete-clang2'
+# on_ft = ['c', 'cpp']
+# hook_source = '''
+# 	let b:clang2_orig_maps = {}
+# '''
 
 # [[plugins]]
 # repo = 'lvht/phpcd.vim'
@@ -350,3 +351,9 @@ repo = 'Shougo/neoinclude.vim'
 # 	source ~/.config/nvim/rc/neocomplete.rc.vim
 # '''
 
+[[plugins]]
+repo = 'Shougo/neco-vim'
+on_ft = 'vim'
+
+[[plugins]]
+repo = 'Shougo/neco-syntax'

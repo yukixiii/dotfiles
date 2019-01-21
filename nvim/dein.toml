@@ -138,7 +138,7 @@ hook_add = '''
 
 	let g:LanguageClient_serverCommands = {
 	\ 'php': ['/usr/bin/php', '~/.config/composer/vendor/bin/php-language-server.php'],
- 	\ 'python': ['/usr/bin/pyls'],
+	\ 'python': ['/usr/bin/pyls'],
 	\ }
 	" let g:LanguageClient_serverCommands = {
 	" 	'php': ['php', '~/.config/composer/vendor/bin/php-language-server.php'],
@@ -179,6 +179,12 @@ hook_add = '''
 
 # [[plugins]]
 # repo = 'tpope/vim-dadbod'
+# depends = 'vim-dispatch'
+# hook_add = '''
+# 	let g:dadbod_eyefile = 'postgresql://eyefile@localhost:45000/eyefile'
+# 	let g:dadbod_aqua = 'postgresql://laravel@localhost:45002/laravel'
+# 	let g:dadbod_shop = 'postgresql://sunity@localhost:45001/cv_shop_search'
+# '''
 
 
 # ==========================================================

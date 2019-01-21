@@ -54,8 +54,20 @@ call denite#custom#map(
 			\ 'noremap'
 			\)
 call denite#custom#map(
+			\ 'insert',
+			\ '<C-s>',
+			\ '<denite:do_action:split>',
+			\ 'noremap'
+			\)
+call denite#custom#map(
 			\ 'normal',
 			\ 'v',
+			\ '<denite:do_action:vsplit>',
+			\ 'noremap'
+			\)
+call denite#custom#map(
+			\ 'insert',
+			\ '<C-v>',
 			\ '<denite:do_action:vsplit>',
 			\ 'noremap'
 			\)
