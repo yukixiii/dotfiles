@@ -8,6 +8,7 @@ extern keymap_config_t keymap_config;
 #define SYMB 2
 #define MOVE 3
 #define FKEY 4
+#define CALC 5
 
 // Fillers to make layering more clear
 #define _______ KC_TRNS
@@ -23,14 +24,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * |------+------+------+------+------+------+------|   |------|------|------+------+------+------+------|
    * | LSft |   Z  |   X  |   C  |   V  |  B   |  N   |   |  B   |   N  |   M  |   ,  |   .  |   /  |   \  |
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
-   * | FKEY | LALT | LGUI | LGUI | META | ESC  |Space |   |Space |SYM|ZH|MOV|EN| MOVE |      |      |  Del |
+   * | FKEY | LALT | LGUI | LGUI |ES/CAL| MOVE |Space |   |SYM/EN|MET/ZH|MOV/EN| MOVE |      |      |  Del |
    * `------------------------------------------------'   `------------------------------------------------'
    */
   [BASE] = LAYOUT( \
-    KC_TAB,   KC_Q,    KC_W,    KC_E,     KC_R,     KC_T,   KC_Y,   KC_T,   KC_Y,              KC_U,              KC_I,     KC_O,    KC_P,    KC_BSPC, \
-    KC_LCTL,  KC_A,    KC_S,    KC_D,     KC_F,     KC_G,   KC_H,   KC_G,   KC_H,              KC_J,              KC_K,     KC_L,    JP_SCLN, JP_COLN, \
-    KC_LSFT,  KC_Z,    KC_X,    KC_C,     KC_V,     KC_B,   KC_N,   KC_B,   KC_N,              KC_M,              JP_COMM,  JP_DOT,  JP_SLSH, JP_BSLS, \
-    MO(FKEY), KC_LALT, KC_LGUI, KC_LGUI,  MO(META), KC_ESC, KC_SPC, KC_SPC, LT(SYMB, JP_ZHTG), LT(MOVE, KC_ENT),  MO(MOVE), XXXXXXX, XXXXXXX, KC_DEL \
+    KC_TAB,   KC_Q,    KC_W,    KC_E,     KC_R,             KC_T,     KC_Y,   KC_T,             KC_Y,              KC_U,              KC_I,    KC_O,    KC_P,    KC_BSPC, \
+    KC_LCTL,  KC_A,    KC_S,    KC_D,     KC_F,             KC_G,     KC_H,   KC_G,             KC_H,              KC_J,              KC_K,    KC_L,    JP_SCLN, JP_COLN, \
+    KC_LSFT,  KC_Z,    KC_X,    KC_C,     KC_V,             KC_B,     KC_N,   KC_B,             KC_N,              KC_M,              JP_COMM, JP_DOT,  JP_SLSH, JP_BSLS, \
+    MO(FKEY), KC_LALT, KC_LGUI, KC_LGUI,  LT(CALC, KC_ESC), MO(MOVE), KC_SPC, LT(SYMB, KC_ENT), LT(META, JP_ZHTG), LT(MOVE, KC_ENT),  XXXXXXX, XXXXXXX, XXXXXXX, KC_DEL \
   ),
 
   /* META
@@ -117,6 +118,24 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_F12, \
     _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, \
     _______, _______, _______, _______, _______, _______, _______,    _______,    _______, _______, _______, XXXXXXX, XXXXXXX, XXXXXXX \
+  ),
+
+  /* CALC
+   * ,------------------------------------------------.   ,------------------------------------------------.
+   * | Tab  |      |      |      |      |      |      |   |      |      |   7  |   8  |   9  |   -  | Bksp |
+   * |------+------+------+------+------+------+------|   |-------------+------+------+------+------+------|
+   * | LCtrl|      |      |      |      |      |      |   |      |      |   4  |   5  |   6  |   +  |   *  |
+   * |------+------+------+------+------+------+------|   |------|------+------+------+------+------+------|
+   * | LSft |      |      |      |      |      |      |   |      |      |   1  |   2  |   3  |   /  |Enter |
+   * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
+   * | FKEY | LALT | LGUI | LGUI | META | ESC  |Space |   |Space |SYM|ZH|   0  |      |   .  |      |      |
+   * `------------------------------------------------'   `------------------------------------------------'
+   */
+  [CALC] = LAYOUT( \
+    _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_7, KC_8,    KC_9,   JP_MINS, KC_BSPC, \
+    _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_4, KC_5,    KC_6,   JP_PLUS, JP_ASTR, \
+    _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_1, KC_2,    KC_3,   JP_SLSH, KC_ENT,  \
+    _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_0, JP_COMM, JP_DOT, XXXXXXX, XXXXXXX \
   )
 
 };
