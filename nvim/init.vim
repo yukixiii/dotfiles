@@ -119,7 +119,7 @@ set cursorline
 set relativenumber
 
 " 特殊記号の幅
-set ambiwidth=double
+set ambiwidth=single
 
 " 折り返し時のインデント
 set breakindent
