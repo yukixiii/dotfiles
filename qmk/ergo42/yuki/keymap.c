@@ -145,7 +145,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * |------+------+------+------+------+------+------|   |-------------+------+------+------+------+------|
    * | LCtrl|      | MS_L | MS_D | MS_R |      |      |   |      | WH_L | WH_D | WH_U | WH_R |      |      |
    * |------+------+------+------+------+------+------|   |------|------+------+------+------+------+------|
-   * | LSft |      | ACL0 | ACL1 | ACL2 |      |      |   |      |      |      |      |      |      |      |
+   * | LSft |      | ACL0 | ACL1 | ACL2 |      |      |   |      |      | ACL0 | ACL1 | ACL2 |      |      |
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
    * | FKEY |      | LALT | LGUI |  CAL |ES/MOV|Space |   |SYM/EN|MET/ZH|MOV/EN| MOVE |      | MOUSE|      |
    * `------------------------------------------------'   `------------------------------------------------'
@@ -153,7 +153,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [MOUS] = LAYOUT( \
     _______, XXXXXXX, XXXXXXX, KC_MS_U, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_BTN1, KC_BTN2, KC_BTN3, XXXXXXX, _______, \
     _______, XXXXXXX, KC_MS_L, KC_MS_D, KC_MS_R, XXXXXXX, XXXXXXX, XXXXXXX, KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R, XXXXXXX, _______, \
-    _______, XXXXXXX, KC_ACL0, KC_ACL1, KC_ACL2, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, \
+    _______, XXXXXXX, KC_ACL0, KC_ACL1, KC_ACL2, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_ACL0, KC_ACL1, KC_ACL2, XXXXXXX, _______, \
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, XXXXXXX \
   )
 
