@@ -57,17 +57,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * ,------------------------------------------------.   ,------------------------------------------------.
    * | Tab  |   !  |   "  |   #  |   $  |   %  |      |   |      |   &  |   '  |   -  |   ~  |   @  |   `  |
    * |------+------+------+------+------+------+------|   |-------------+------+------+------+------+------|
-   * | LCtrl|      |      |      |   [  |   {  |  (   |   |  )   |   }  |   ]  |   =  |   |  |   +  |   *  |
+   * | LCtrl|      |   ^  |      |   [  |   {  |  (   |   |  )   |   }  |   ]  |   =  |   |  |   +  |   *  |
    * |------+------+------+------+------+------+------|   |------|------+------+------+------+------+------|
-   * | LSft |      |      |      |      |      |      |   |      |      |   ^  |   <  |   >  |   ?  |   _  |
+   * | LSft |      |      |      |   (  |      |      |   |      |      |   )  |   <  |   >  |   ?  |   _  |
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
    * | FKEY |      | LALT | LGUI |  CAL |ES/MOV|Space |   |SYM/EN|MET/ZH|MOV/EN| MOVE |      |      |      |
    * `------------------------------------------------'   `------------------------------------------------'
    */
   [SYMB] = LAYOUT( \
     _______, JP_EXLM, JP_DQT,  JP_HASH, JP_DLR,  JP_PERC, XXXXXXX, XXXXXXX, JP_AMPR, JP_QUOT, JP_MINS, JP_TILD, JP_AT,   JP_GRV,  \
-    _______, XXXXXXX, XXXXXXX, XXXXXXX, JP_LBRC, JP_LCBR, JP_LPRN, JP_RPRN, JP_RCBR, JP_RBRC, JP_EQL,  JP_PIPE, JP_PLUS, JP_ASTR, \
-    _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, JP_CIRC, JP_LT,   JP_GT,   JP_QUES, JP_UNDS, \
+    _______, XXXXXXX, JP_CIRC, XXXXXXX, JP_LBRC, JP_LCBR, JP_LPRN, JP_RPRN, JP_RCBR, JP_RBRC, JP_EQL,  JP_PIPE, JP_PLUS, JP_ASTR, \
+    _______, XXXXXXX, XXXXXXX, XXXXXXX, JP_LPRN, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, JP_RPRN, JP_LT,   JP_GT,   JP_QUES, JP_UNDS, \
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, XXXXXXX \
   ),
   /*
@@ -123,9 +123,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   /* CALC
    * ,------------------------------------------------.   ,------------------------------------------------.
-   * | Tab  |      |      |      |      |      |      |   |      |      |   7  |   8  |   9  |   -  | Bksp |
+   * | Tab  |      |      |   {  |   }  |      |      |   |      |      |   7  |   8  |   9  |   -  | Bksp |
    * |------+------+------+------+------+------+------|   |-------------+------+------+------+------+------|
-   * | LCtrl|      |      |      |      |      |      |   |      |      |   4  |   5  |   6  |   +  |   *  |
+   * | LCtrl|   (  |   )  |   [  |   ]  |      |      |   |      |      |   4  |   5  |   6  |   +  |   *  |
    * |------+------+------+------+------+------+------|   |------|------+------+------+------+------+------|
    * | LSft |      |      |      |      |      |      |   |      |      |   1  |   2  |   3  |   /  |Enter |
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
@@ -133,8 +133,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * `------------------------------------------------'   `------------------------------------------------'
    */
   [CALC] = LAYOUT( \
-    _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_7, KC_8,    KC_9,   JP_MINS, KC_BSPC, \
-    _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_4, KC_5,    KC_6,   JP_PLUS, JP_ASTR, \
+    _______, XXXXXXX, XXXXXXX, JP_LCBR, JP_RCBR, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_7, KC_8,    KC_9,   JP_MINS, KC_BSPC, \
+    _______, JP_LPRN, JP_RPRN, JP_LBRC, JP_RBRC, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_4, KC_5,    KC_6,   JP_PLUS, JP_ASTR, \
     _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_1, KC_2,    KC_3,   JP_SLSH, KC_ENT,  \
     _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_0, JP_COMM, JP_DOT, _______, XXXXXXX \
   ),
