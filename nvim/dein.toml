@@ -18,6 +18,7 @@ let g:tweetvim_display_source = 1
 let g:tweetvim_display_time = 1
 let g:tweetvim_async_post = 1
 let g:tweetvim_display_username = 1
+let g:tweetvim_display_icon = 1
 let g:tweetvim_buffer_name = '[buffer]'
 '''
 
@@ -147,6 +148,8 @@ hook_add = '''
 	" 	" \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
 	" 	" \ 'python': ['/usr/local/bin/pyls'],
 	" 	\ }
+	"
+	" let g:LanguageClient_changeThrottle = 1
 
 	function LC_maps()
 		if has_key(g:LanguageClient_serverCommands, &filetype)
@@ -156,7 +159,7 @@ hook_add = '''
 			" nnoremap <silent> <F2> :<C-u>call LanguageClient#textDocument_rename()<CR>
 		endif
 	endfunction
-    autocmd FileType * call LC_maps()
+	autocmd FileType * call LC_maps()
 '''
 
 # [[plugins]]
@@ -211,6 +214,23 @@ repo = 'mechatroner/rainbow_csv'
 [[plugins]]
 repo = 'osyo-manga/vim-precious'
 depends = 'context_filetype.vim'
+hook_add = '''
+" insert mode に入った時に 'filetype' を切り換える。
+" カーソル移動時の自動切り替えを無効化
+let g:precious_enable_switch_CursorMoved = {
+\	"*" : 0
+\}
+let g:precious_enable_switch_CursorMoved_i = {
+\	"*" : 0
+\}
+
+" insert に入った時にスイッチし、抜けた時に元に戻す
+augroup vim-precious
+	autocmd!
+	autocmd InsertEnter * :PreciousSwitch
+	autocmd InsertLeave * :PreciousReset
+augroup END
+'''
 
 [[plugins]]
 repo = 'blueyed/smarty.vim'

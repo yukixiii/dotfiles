@@ -104,6 +104,7 @@ set termguicolors
 
 " colorscheme
 set background=light
+" set background=dark
 colorscheme gruvbox
 
 " if !exists('g:gui_oni')

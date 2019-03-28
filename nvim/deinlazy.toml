@@ -85,8 +85,8 @@ hook_add = '''
 	" nmap ,a :<C-u>Denite buffer_tab file file_mru<CR>
 	nmap ,t :<C-u>Denite buffer<CR>
 	nmap ,m :<C-u>Denite file_mru<CR>
-	nmap ,r :<C-u>Denite file_rec<CR>
-	nmap ,p :<C-u>Denite file_rec/git<CR>
+	nmap ,r :<C-u>Denite file/rec<CR>
+	nmap ,p :<C-u>Denite file/rec/git<CR>
 	nmap ,g :<C-u>DeniteBufferDir file file:new<CR>
 	nmap ,j :<C-u>Denite file file:new<CR>
 	nmap ,h :<C-u>Denite file::`expand('~/')` file:new:`expand('~/')`<CR>
@@ -184,7 +184,7 @@ let g:context_filetype#filetypes = {
 repo = 'raghur/fruzzy'
 on_source = ['denite.nvim']
 hook_source = '''
-let g:fruzzy#usenative = 1
+let g:fruzzy#usenative = 0
 let g:fruzzy#sortonempty = 0
 '''
 hook_post_update = 'call fruzzy#install()'
@@ -215,8 +215,8 @@ on_source = 'ranger.vim'
 [[plugins]]
 repo = 'Shougo/defx.nvim'
 hook_add = '''
-    " nnoremap <silent> ,f :<C-u>Defx<CR>
-    " nnoremap <silent> ,d :<C-u>Defx `expand('%:p:h')` -search=`expand('%:p')`<CR>
+	" nnoremap <silent> ,f :<C-u>Defx<CR>
+	" nnoremap <silent> ,d :<C-u>Defx `expand('%:p:h')` -search=`expand('%:p')`<CR>
 '''
 hook_source = '''
 	autocmd FileType defx call s:defx_my_settings()

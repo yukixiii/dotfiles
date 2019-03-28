@@ -1,8 +1,10 @@
-" Change file_rec command.
-call denite#custom#var('file_rec', 'command',
-			\ ['pt', '--follow', '--nocolor', '--nogroup', '-g=', ''])
+" Change file/rec command.
+" call denite#custom#var('file/rec', 'command',
+"			\ ['pt', '--follow', '--nocolor', '--nogroup', '-g=', ''])
+call denite#custom#var('file/rec', 'command',
+			\ ['rg', '--files', '--glob', '!.git'])
 
-" call denite#custom#var('file_rec', 'command', ['scantree.py'])
+" call denite#custom#var('file/rec', 'command', ['scantree.py'])
 
 " Change mappings.
 call denite#custom#map(
@@ -73,19 +75,19 @@ call denite#custom#map(
 			\)
 
 " Change matchers.
-call denite#custom#source('_', 'matchers', ['matcher/cpsm'])
+call denite#custom#source('_', 'matchers', ['matcher/substring'])
 call denite#custom#source(
-			\ 'file_mru', 'matchers', ['matcher/cpsm', 'matcher/project_files'])
-call denite#custom#source(
-			\ 'file_rec', 'matchers', ['matcher/cpsm'])
-call denite#custom#source(
-			\ 'file', 'matchers', ['matcher/substring'])
-call denite#custom#source(
-			\ 'grep', 'matchers', ['matcher/cpsm'])
+			\ 'file_mru', 'matchers', ['matcher/substring', 'matcher/project_files'])
+" call denite#custom#source(
+"			\ 'file/rec', 'matchers', ['matcher/substring'])
+" call denite#custom#source(
+"			\ 'file', 'matchers', ['matcher/substring'])
+" call denite#custom#source(
+"			\ 'grep', 'matchers', ['matcher/fruzzy'])
 
 " Change sorters.
 call denite#custom#source(
-			\ 'file_rec', 'sorters', ['sorter_sublime'])
+			\ 'file/rec', 'sorters', ['sorter_sublime'])
 call denite#custom#source(
 			\ 'file', 'sorters', ['sorter_word'])
 
@@ -100,9 +102,18 @@ call denite#custom#source(
 " call denite#custom#var('grep', 'final_opts', [])
 
 " Pt command on grep source
-call denite#custom#var('grep', 'command', ['pt'])
+" call denite#custom#var('grep', 'command', ['pt'])
+" call denite#custom#var('grep', 'default_opts',
+"			\ ['--nogroup', '--nocolor', '--smart-case'])
+" call denite#custom#var('grep', 'recursive_opts', [])
+" call denite#custom#var('grep', 'pattern_opt', [])
+" call denite#custom#var('grep', 'separator', ['--'])
+" call denite#custom#var('grep', 'final_opts', [])
+
+" ripgrep command on grep source
+call denite#custom#var('grep', 'command', ['rg'])
 call denite#custom#var('grep', 'default_opts',
-			\ ['--nogroup', '--nocolor', '--smart-case'])
+			\ ['-i', '--vimgrep', '--no-heading'])
 call denite#custom#var('grep', 'recursive_opts', [])
 call denite#custom#var('grep', 'pattern_opt', [])
 call denite#custom#var('grep', 'separator', ['--'])
@@ -112,8 +123,8 @@ call denite#custom#source('file_mru', 'converters',
 			\ ['converter_relative_word'])
 
 " Define alias
-call denite#custom#alias('source', 'file_rec/git', 'file_rec')
-call denite#custom#var('file_rec/git', 'command',
+call denite#custom#alias('source', 'file/rec/git', 'file/rec')
+call denite#custom#var('file/rec/git', 'command',
 			\ ['git', 'ls-files', '-co', '--exclude-standard'])
 
 " Change default prompt
