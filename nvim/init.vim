@@ -69,8 +69,21 @@ autocmd TermOpen * startinsert
 
 " 「日本語入力固定モード」切替キー
 " dein.tmlに書こうとしたけどうまく行かなかった
-let IM_CtrlMode = 6
-inoremap <silent> <C-o> <C-^><C-r>=IMState('FixMode')<CR>
+let IM_CtrlMode = 1
+if !exists('*IMCtrl')
+	silent! function IMCtrl(cmd)
+		let cmd = a:cmd
+		if cmd == 'On'
+			call system('fcitx-remote -o > /dev/null 2>&1 '.g:IM_CtrlAsync)
+		elseif cmd == 'Off'
+			call system('fcitx-remote -c > /dev/null 2>&1 '.g:IM_CtrlAsync)
+		elseif cmd == 'Toggle'
+			call system('fcitx-remote -t > /dev/null 2>&1 '.g:IM_CtrlAsync)
+		endif
+		return ''
+	endfunction
+endif
+inoremap <silent> <C-o> <C-r>=IMState('FixMode')<CR>
 " }}}
 "-------------------------------
 " 表示設定 {{{
@@ -103,13 +116,13 @@ set hlsearch
 set termguicolors
 
 " colorscheme
-set background=light
-" set background=dark
+" set background=light
+set background=dark
 colorscheme gruvbox
 
-" if !exists('g:gui_oni')
-" 	let g:seiya_auto_enable=1
-" endif
+if !exists('g:gui_oni')
+	let g:seiya_auto_enable=1
+endif
 
 
 " 行ハイライト
