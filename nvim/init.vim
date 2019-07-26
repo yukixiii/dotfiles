@@ -116,13 +116,13 @@ set hlsearch
 set termguicolors
 
 " colorscheme
-" set background=light
-set background=dark
+set background=light
+" set background=dark
 colorscheme gruvbox
 
-if !exists('g:gui_oni')
-	let g:seiya_auto_enable=1
-endif
+" if !exists('g:gui_oni')
+" 	let g:seiya_auto_enable=1
+" endif
 
 
 " 行ハイライト
@@ -130,7 +130,7 @@ set cursorline
 " set cursorcolumn
 
 " 相対行番号
-set relativenumber
+" set relativenumber
 
 " 特殊記号の幅
 set ambiwidth=single
@@ -240,6 +240,10 @@ nnoremap <silent> <A-0> :<C-u>tabnext $<CR>
 " diff
 nnoremap <Leader>dt :<C-u>diffthis<CR>
 nnoremap <Leader>do :<C-u>diffoff!<CR>
+
+" background
+nnoremap <silent> <Leader>bl :<C-u>set background=light<CR>
+nnoremap <silent> <Leader>bd :<C-u>set background=dark<CR>
 
 " Plugin
 " nmap ,a :<C-u>Unite buffer_tab file file_mru<CR>
