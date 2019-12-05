@@ -377,14 +377,14 @@ on_ft = 'go'
 # build = 'composer install'
 # on_ft = 'php'
 
-[[plugins]]
-repo = 'Shougo/deoplete.nvim'
-depends = 'context_filetype.vim'
-on_event = 'InsertEnter'
-hook_source = '''
-	source ~/.config/nvim/rc/deoplete.rc.vim
-	call deoplete#enable()
-'''
+# [[plugins]]
+# repo = 'Shougo/deoplete.nvim'
+# depends = 'context_filetype.vim'
+# on_event = 'InsertEnter'
+# hook_source = '''
+# 	source ~/.config/nvim/rc/deoplete.rc.vim
+# 	call deoplete#enable()
+# '''
 
 [[plugins]]
 repo = 'Shougo/neosnippet.vim'

@@ -23,6 +23,7 @@ local hotkeys_popup = require("awful.hotkeys_popup").widget
                       require("awful.hotkeys_popup.keys")
 local my_table      = awful.util.table or gears.table -- 4.{0,1} compatibility
 local dpi           = require("beautiful.xresources").apply_dpi
+local awmodoro      = require("awmodoro")
 -- }}}
 
 -- {{{ Error handling
@@ -87,17 +88,19 @@ local themes = {
     "vertex",          -- 10
 }
 
-local chosen_theme = themes[5]
+local chosen_theme = themes[10]
 local modkey       = "Mod4"
 local altkey       = "Mod1"
--- local terminal     = "tilix"
-local terminal     = "alacritty"
+local terminal     = "tilix"
+-- local terminal     = "alacritty"
+local vi_focus     = false -- vi-like client focus - https://github.com/lcpz/awesome-copycats/issues/275
+local cycle_prev   = true -- cycle trough all previous client or just the first -- https://github.com/lcpz/awesome-copycats/issues/274
 local editor       = os.getenv("EDITOR") or "vim"
 -- local gui_editor   = "gvim"
 -- local browser      = "chromium"
 local browser      = "chromium"
--- local guieditor    = "nvim-qt"
-local guieditor    = "oni"
+local guieditor    = "nvim-qt"
+-- local guieditor    = "oni"
 -- local scrlocker    = "slock"
 
 awful.util.terminal = terminal
@@ -196,6 +199,33 @@ beautiful.init(string.format("%s/.config/awesome/themes/%s/theme-personal.lua", 
 -- beautiful.notification_icon_size = 1
 naughty.config.defaults['icon_size'] = 100
 -- beautiful.notification_max_height = 10
+
+-- pomodoro wibox
+pomowibox = awful.wibox({ position = "top", screen = 1, height=4 })
+pomowibox.visible = false
+local pomodoro = awmodoro.new({
+    minutes         = 25,
+    do_notify       = true,
+    active_bg_color = '#313131',
+    paused_bg_color = '#7746D7',
+    fg_color        = {type = "linear", from = {0,0}, to = {pomowibox.width, 0}, stops = {{0, "#AECF96"}, {0.5, "#88A175"}, {1, "#FF5656"}}},
+    width           = pomowibox.width,
+    height          = pomowibox.height,
+
+    begin_callback = function()
+        for s in screen do
+            s.mywibox.visible = false
+        end
+        pomowibox.visible = true
+    end,
+
+    finish_callback = function()
+        for s in screen do
+            s.mywibox.visible = true
+        end
+        pomowibox.visible = false
+    end})
+pomowibox:set_widget(pomodoro)
 -- }}}
 
 -- {{{ Menu
@@ -343,12 +373,26 @@ globalkeys = my_table.join(
               {description = "jump to urgent client", group = "client"}),
     awful.key({ modkey,           }, "Tab",
         function ()
-            awful.client.focus.history.previous()
+            if cycle_prev then
+                awful.client.focus.history.previous()
+            else
+                awful.client.focus.byidx(-1)
+            end
             if client.focus then
                 client.focus:raise()
             end
         end,
-        {description = "go back", group = "client"}),
+        {description = "cycle with previous/go back", group = "client"}),
+    awful.key({ modkey, "Shift"   }, "Tab",
+        function ()
+            if cycle_prev then
+                awful.client.focus.byidx(1)
+                if client.focus then
+                    client.focus:raise()
+                end
+            end
+        end,
+        {description = "go forth", group = "client"}),
 
     -- Show/Hide Wibox
     awful.key({ modkey }, "b", function ()
@@ -518,6 +562,8 @@ globalkeys = my_table.join(
               {description = "run gui editor", group = "launcher"}),
     awful.key({ modkey }, "@", function () awful.spawn("xscreensaver-command -lock") end,
               {description = "run xscreensaver", group = "launcher"}),
+    awful.key({ modkey }, "e", function () pomodoro:toggle() end),
+    awful.key({ modkey, "Shift" }, "e", function () pomodoro:finish() end),
 
     -- Default
     -- Menubar
@@ -762,21 +808,10 @@ end)
 
 -- Enable sloppy focus, so that focus follows mouse.
 client.connect_signal("mouse::enter", function(c)
-    c:emit_signal("request::activate", "mouse_enter", {raise = true})
+    c:emit_signal("request::activate", "mouse_enter", {raise = vi_focus})
 end)
 
--- No border for maximized clients
-function border_adjust(c)
-    if c.maximized then -- no borders if only 1 client visible
-        c.border_width = 0
-    elseif #awful.screen.focused().clients > 1 then
-        c.border_width = beautiful.border_width
-        c.border_color = beautiful.border_focus
-    end
-end
-
-client.connect_signal("property::maximized", border_adjust)
-client.connect_signal("focus", border_adjust)
+client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 
 -- possible workaround for tag preservation when switching back to default screen:

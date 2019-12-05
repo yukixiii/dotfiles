@@ -67,6 +67,11 @@ set splitright
 " terminalをinsertで始める
 autocmd TermOpen * startinsert
 
+" if has('nvim')
+" 	let g:python_host_prog = '/usr/bin/python2'
+" 	let g:python3_host_prog = '/usr/bin/python'
+" endif
+
 " 「日本語入力固定モード」切替キー
 " dein.tmlに書こうとしたけどうまく行かなかった
 let IM_CtrlMode = 1
@@ -126,7 +131,7 @@ colorscheme gruvbox
 
 
 " 行ハイライト
-set cursorline
+" set cursorline
 " set cursorcolumn
 
 " 相対行番号
