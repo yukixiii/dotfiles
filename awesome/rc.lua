@@ -88,7 +88,7 @@ local themes = {
     "vertex",          -- 10
 }
 
-local chosen_theme = themes[10]
+local chosen_theme = themes[5]
 local modkey       = "Mod4"
 local altkey       = "Mod1"
 local terminal     = "tilix"
@@ -208,7 +208,7 @@ local pomodoro = awmodoro.new({
     do_notify       = true,
     active_bg_color = '#313131',
     paused_bg_color = '#7746D7',
-    fg_color        = {type = "linear", from = {0,0}, to = {pomowibox.width, 0}, stops = {{0, "#AECF96"}, {0.5, "#88A175"}, {1, "#FF5656"}}},
+    fg_color        = { type = "linear", from = {0,0}, to = {pomowibox.width, 0}, stops = {{0, "#AECF96"}, {0.5, "#88A175"}, {1, "#FF5656"}} },
     width           = pomowibox.width,
     height          = pomowibox.height,
 
@@ -224,7 +224,8 @@ local pomodoro = awmodoro.new({
             s.mywibox.visible = true
         end
         pomowibox.visible = false
-    end})
+    end
+})
 pomowibox:set_widget(pomodoro)
 -- }}}
 

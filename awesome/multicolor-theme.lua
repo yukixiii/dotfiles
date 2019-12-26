@@ -16,7 +16,14 @@ local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 
 local theme                                     = {}
 theme.confdir                                   = os.getenv("HOME") .. "/.config/awesome/themes/multicolor"
-theme.wallpaper                                 = theme.confdir .. "/wall.png"
+-- theme.wallpaper                                 = theme.confdir .. "/wall.png"
+-- theme.wallpaper                                 = os.getenv("HOME") .. "/.config/awesome/themes/vertex/wall.png"
+-- theme.wallpaper                                 = os.getenv("HOME") .. "/.config/awesome/wall/45f67a63182d0ef32f9a.jpg"
+-- theme.wallpaper                                 = os.getenv("HOME") .. "/.config/awesome/wall/71918bfb53a581e84abb.jpg"
+-- theme.wallpaper                                 = os.getenv("HOME") .. "/.config/awesome/wall/8a78a57799a42cb2e657.jpg"
+-- theme.wallpaper                                 = os.getenv("HOME") .. "/.config/awesome/wall/dc354cf416ab2c5e01e0.jpg"
+theme.wallpaper                                 = os.getenv("HOME") .. "/.config/awesome/wall/f4c307a6d1e96c39903d.jpg"
+-- theme.wallpaper                                 = os.getenv("HOME") .. "/.config/awesome/wall/f7c1246abf206b5fc7d6.jpg"
 theme.font                                      = "Terminus 10"
 theme.menu_bg_normal                            = "#000000"
 theme.menu_bg_focus                             = "#000000"
@@ -103,7 +110,7 @@ mytextclock.font = theme.font
 theme.cal = lain.widget.cal({
     attach_to = { mytextclock },
     notification_preset = {
-        font = "Terminus 10",
+        font = "Monospace 10",
         fg   = theme.fg_normal,
         bg   = theme.bg_normal
     }
@@ -112,7 +119,7 @@ theme.cal = lain.widget.cal({
 -- Weather
 local weathericon = wibox.widget.imagebox(theme.widget_weather)
 theme.weather = lain.widget.weather({
-    city_id = 2643743, -- placeholder (London)
+    city_id = 1850147, -- placeholder (Tokyo)
     notification_preset = { font = "Terminus 10", fg = theme.fg_normal },
     weather_na_markup = markup.fontfg(theme.font, "#eca4c4", "N/A "),
     settings = function()

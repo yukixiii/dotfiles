@@ -17,7 +17,14 @@ local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 local theme                                     = {}
 theme.default_dir                               = require("awful.util").get_themes_dir() .. "default"
 theme.icon_dir                                  = os.getenv("HOME") .. "/.config/awesome/themes/vertex/icons"
-theme.wallpaper                                 = os.getenv("HOME") .. "/.config/awesome/themes/vertex/wall.png"
+-- theme.wallpaper                                 = os.getenv("HOME") .. "/.config/awesome/themes/vertex/wall.png"
+-- theme.wallpaper                                 = os.getenv("HOME") .. "/.config/awesome/wall/45f67a63182d0ef32f9a.jpg"
+-- theme.wallpaper                                 = os.getenv("HOME") .. "/.config/awesome/wall/71918bfb53a581e84abb.jpg"
+-- theme.wallpaper                                 = os.getenv("HOME") .. "/.config/awesome/wall/8a78a57799a42cb2e657.jpg"
+-- theme.wallpaper                                 = os.getenv("HOME") .. "/.config/awesome/wall/dc354cf416ab2c5e01e0.jpg"
+theme.wallpaper                                 = os.getenv("HOME") .. "/.config/awesome/wall/f4c307a6d1e96c39903d.jpg"
+-- theme.wallpaper                                 = os.getenv("HOME") .. "/.config/awesome/wall/f7c1246abf206b5fc7d6.jpg"
+
 theme.font                                      = "Roboto Bold 10"
 -- theme.taglist_font                              = "FontAwesome 17"
 theme.taglist_font                              = "Sazanami Mincho 17"
@@ -328,7 +335,9 @@ end
 
 function theme.vertical_wibox(s)
     -- Create the vertical wibox
-    s.dockheight = (35 *  s.workarea.height)/100
+    -- s.dockheight = (35 *  s.workarea.height)/100
+    -- s.dockheight = (dpi(40) *  s.workarea.height)/100
+    s.dockheight = dpi(430)
 
     s.myleftwibox = wibox({ screen = s, x=0, y=s.workarea.height/2 - s.dockheight/2, width = dpi(6), height = s.dockheight, fg = theme.fg_normal, bg = barcolor2, ontop = true, visible = true, type = "dock" })
 
