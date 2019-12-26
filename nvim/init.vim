@@ -131,8 +131,12 @@ colorscheme gruvbox
 
 
 " 行ハイライト
-" set cursorline
+set cursorline
 " set cursorcolumn
+
+" 行ハイライトを現在のウィンドウでのみ行う
+au WinLeave * set nocursorline
+au WinEnter * set cursorline
 
 " 相対行番号
 " set relativenumber

@@ -364,6 +364,15 @@ augroup END
 [[plugins]]
 repo = 'blueyed/smarty.vim'
 
+[[plugins]]
+repo = 'slim-template/vim-slim'
+hook_add = '''
+	autocmd BufNewFile,BufRead *.slim setlocal filetype=slim
+'''
+
+[[plugins]]
+repo = 'juanchanco/vim-jbuilder'
+
 
 # ==========================================================
 # color

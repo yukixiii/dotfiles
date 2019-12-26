@@ -2,7 +2,14 @@
 " call denite#custom#var('file/rec', 'command',
 "			\ ['pt', '--follow', '--nocolor', '--nogroup', '-g=', ''])
 call denite#custom#var('file/rec', 'command',
-			\ ['rg', '--files', '--glob', '!.git'])
+			\ ['rg', '--follow', '--files', '--glob', '!.git'])
+" --follow
+"   symlinkをたどる
+" --files
+"   ファイル名を出力する
+" --glob
+"   検索対象に追加する or 除外するファイル/ディレクトリを指定
+"   先頭に ! をつけると除外らしい
 
 " call denite#custom#var('file/rec', 'command', ['scantree.py'])
 
