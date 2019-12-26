@@ -65,3 +65,5 @@ alias ll='ls -lha --time-style=long-iso'
 function ncd
     nvr -c "cd "(realpath $argv)
 end
+
+status --is-interactive; and source (rbenv init -|psub)
