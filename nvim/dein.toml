@@ -85,6 +85,10 @@ hook_add = '''
 
 [[plugins]]
 repo = 'fuenor/qfixhowm'
+hook_add = '''
+	" howmファイルタイプ
+	" let QFixHowm_FileType = 'markdown.qfix_memo'
+'''
 
 [[plugins]]
 repo = 'fuenor/im_control.vim'
@@ -372,6 +376,9 @@ hook_add = '''
 
 [[plugins]]
 repo = 'juanchanco/vim-jbuilder'
+hook_add = '''
+	autocmd BufNewFile,BufRead *.jbuilder setlocal filetype=jbuilder
+'''
 
 
 # ==========================================================

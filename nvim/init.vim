@@ -189,6 +189,21 @@ if has('syntax')
 	augroup END
 	call ZenkakuSpace()
 endif
+
+" howmファイルタイプ
+let QFixHowm_FileType = 'qfix_memo'
+" 折りたたみを有効にする。
+let QFixHowm_Folding               = 1
+" 折りたたみのレベル設定
+let QFixHowm_FoldingMode           = 1
+" 折りたたみのパターン
+let QFixHowm_FoldingPattern        = '^[=# .*]'
+" 折りたたみにチャプターのタイトル行を含める/含めない
+let QFixHowm_FoldingChapterTitle   = 0
+" 折りたたみに ワイルドカードチャプターを使用する
+let QFixHowm_WildCardChapter       = 1
+" 階層付きテキストもワイルドカードチャプター変換の対象にする
+let QFixHowm_WildCardChapterMode   = 1
 " }}}
 "------------------------------
 " キーバインド
