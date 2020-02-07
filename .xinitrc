@@ -47,6 +47,12 @@ export XMODIFIERS=@im=fcitx
 export DefaultIMModule=fcitx
 fcitx-autostart
 
+# export GTK_IM_MODULE=ibus
+# export QT_IM_MODULE=ibus
+# export XMODIFIERS=@im=ibus
+# export DefaultIMModule=ibus
+# ibus-daemon -drx
+
 eval $(ssh-agent)
 
 # [[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap

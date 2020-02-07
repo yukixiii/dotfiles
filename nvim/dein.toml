@@ -147,6 +147,11 @@ hook_add = '''
 # [[plugins]]
 # repo = 'equalsraf/neovim-gui-shim'
 
+[[plugins]]
+repo = 'glacambre/firenvim'
+hook_post_update = '''
+	call firenvim#install(0)
+'''
 
 # ==========================================================
 # language server protocol

@@ -191,7 +191,8 @@ if has('syntax')
 endif
 
 " howmファイルタイプ
-let QFixHowm_FileType = 'qfix_memo'
+" let QFixHowm_FileType = 'qfix_memo'
+let QFixHowm_FileType = 'qfix_memo.markdown'
 " 折りたたみを有効にする。
 let QFixHowm_Folding               = 1
 " 折りたたみのレベル設定
@@ -204,6 +205,12 @@ let QFixHowm_FoldingChapterTitle   = 0
 let QFixHowm_WildCardChapter       = 1
 " 階層付きテキストもワイルドカードチャプター変換の対象にする
 let QFixHowm_WildCardChapterMode   = 1
+" タイトル記号
+" let QFixHowm_Title = '#'
+" HTMLファイル出力先
+let HowmHtml_htmldir = '~/howm/html'
+" URIを開くブラウザ指定(Unix)
+let QFixHowm_OpenURIcmd = "call system('chromium %s &')"
 " }}}
 "------------------------------
 " キーバインド
