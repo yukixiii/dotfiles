@@ -3,6 +3,7 @@
     "python.linting.flake8Enabled": true,
     "python.linting.pylintEnabled": false,
     "python.jediEnabled": true,
-    "solargraph.useBundler": true,
-    "solargraph.diagnostics": false
+    "solargraph.useBundler": false,
+    "solargraph.diagnostics": false,
+    "solargraph.definitions": true
 }

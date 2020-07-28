@@ -302,6 +302,8 @@ nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
 " nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+
+autocmd FileType ruby let b:coc_root_patterns = ['Gemfile', '.env', '.git']
 '''
 
 # ==========================================================
