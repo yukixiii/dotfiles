@@ -364,3 +364,12 @@ endfunction
 autocmd WinEnter * if &buftype ==# 'terminal' | startinsert | endif
 " }}}
 "------------------------------
+" PluginTest {{{
+"------------------------------
+" PluginTest
+command! -bang -nargs=* PluginTest call PluginTest()
+function! PluginTest()
+  execute 'T nvim -u ~/dotfiles/nvim/min.vim -i NONE -N --cmd "set rtp+=' . getcwd() . '"'
+endfunction
+" }}}
+"------------------------------
