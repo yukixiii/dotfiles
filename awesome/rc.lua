@@ -91,8 +91,8 @@ local themes = {
 local chosen_theme = themes[5]
 local modkey       = "Mod4"
 local altkey       = "Mod1"
--- local terminal     = "tilix"
-local terminal     = "alacritty"
+local terminal     = "tilix"
+-- local terminal     = "alacritty"
 local vi_focus     = false -- vi-like client focus - https://github.com/lcpz/awesome-copycats/issues/275
 local cycle_prev   = true -- cycle trough all previous client or just the first -- https://github.com/lcpz/awesome-copycats/issues/274
 local editor       = os.getenv("EDITOR") or "vim"
@@ -295,8 +295,10 @@ root.buttons(my_table.join(
 globalkeys = my_table.join(
     -- Take a screenshot
     -- https://github.com/lcpz/dots/blob/master/bin/screenshot
-    awful.key({ altkey }, "p", function() os.execute("deepin-screenshot") end,
+    awful.key({ altkey }, "o", function() awful.spawn("gnome-screenshot") end,
               {description = "take a screenshot", group = "hotkeys"}),
+    awful.key({ altkey }, "p", function() awful.spawn("gnome-screenshot -i") end,
+              {description = "take an area screenshot", group = "hotkeys"}),
 
     -- X screen locker
     -- awful.key({ altkey, "Control" }, "l", function () os.execute(scrlocker) end,
